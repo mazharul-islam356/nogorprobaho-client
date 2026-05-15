@@ -48,7 +48,6 @@ const National = () => {
     },
   };
 
-  // LOADING
   if (loading) {
     return (
       <section className="py-8 lg:py-10 bg-[#f5f5f5] animate-pulse">
