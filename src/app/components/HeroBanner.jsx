@@ -98,7 +98,7 @@ export default function HeroSection() {
               </span>
 
               {/* TITLE */}
-              <h1 className="text-white text-[34px]  lg:text-[60px] leading-[1.02] font-black tracking-tight mt-3">
+              <h1 className="text-white text-[34px]  lg:text-[55px] leading-[1.02] font-medium tracking-tight mt-3">
                 {getTranslatedValue(heroNews?.title, lang)}
               </h1>
 

@@ -50,9 +50,9 @@ export default function NewsNavbar() {
 
   return (
     <>
-      <header className="absolute top-0 left-0 w-full z-50">
+      <header className="absolute  top-0 left-0 w-full z-50">
         {/* TOP NAVBAR */}
-        <div className="border-b border-white/10">
+        <div className="border-b bg-black/20 backdrop-blur-md border-white/10">
           <div className="max-w-7xl mx-auto px-4 lg:px-0 h-[80px] flex items-center justify-between">
             {/* LEFT */}
             <div className="flex items-center gap-4">
