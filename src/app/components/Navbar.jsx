@@ -8,6 +8,7 @@ import { ChevronRight, Globe2, Menu, Play, X } from "lucide-react";
 
 import { useLanguage } from "@/context/lagnguageContext";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
+import { Newspaper } from "lucide-react";
 
 export default function NewsNavbar() {
   const { lang, toggleLanguage } = useLanguage();
@@ -84,11 +85,14 @@ export default function NewsNavbar() {
             {/* RIGHT */}
             <div className="flex items-center gap-3">
               {/* LIVE BTN */}
-              <button className="hidden sm:flex items-center gap-2 bg-[#9d600d] hover:bg-[#c58a1d] transition text-white text-sm font-medium px-5 py-2.5 rounded-full">
-                <Play size={15} fill="white" />
+              <Link
+                href={`/e-paper`}
+                className="hidden sm:flex items-center gap-2 bg-[#9d600d] hover:bg-[#c58a1d] transition text-white text-sm font-medium px-5 py-2.5 rounded-full"
+              >
+                <Newspaper size={15} />
 
-                {lang === "en" ? "Live TV" : "লাইভ টিভি"}
-              </button>
+                {lang === "en" ? "E-Paper" : "ই-পেপার"}
+              </Link>
 
               {/* LANGUAGE */}
               <button
