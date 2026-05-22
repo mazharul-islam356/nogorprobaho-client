@@ -77,14 +77,11 @@ export default function NewsNavbar() {
               </Link>
             </div>
 
-            {/* DATE */}
             <div className="hidden lg:block">
               <p className="text-white/70 text-sm">{formattedDate}</p>
             </div>
 
-            {/* RIGHT */}
             <div className="flex items-center gap-3">
-              {/* LIVE BTN */}
               <Link
                 href={`/e-paper`}
                 className="hidden sm:flex items-center gap-2 bg-[#9d600d] hover:bg-[#c58a1d] transition text-white text-sm font-medium px-5 py-2.5 rounded-full"
@@ -94,7 +91,6 @@ export default function NewsNavbar() {
                 {lang === "en" ? "E-Paper" : "ই-পেপার"}
               </Link>
 
-              {/* LANGUAGE */}
               <button
                 onClick={toggleLanguage}
                 className="flex items-center gap-2 border border-white/15 hover:bg-white/10 transition rounded-full px-4 py-2 text-white"
@@ -109,7 +105,6 @@ export default function NewsNavbar() {
           </div>
         </div>
 
-        {/* CATEGORY NAVBAR */}
         <div
           className={`w-full transition-all duration-300 ${
             isSticky
@@ -119,7 +114,6 @@ export default function NewsNavbar() {
         >
           <div className="max-w-7xl mx-auto px-4 lg:px-0">
             <nav className="hidden lg:flex items-center justify-between h-[60px]">
-              {/* LEFT */}
               <div className="flex items-center gap-8 overflow-x-auto no-scrollbar">
                 {categories.map((category) => (
                   <Link
@@ -134,7 +128,6 @@ export default function NewsNavbar() {
                 ))}
               </div>
 
-              {/* RIGHT */}
               <button className="flex items-center gap-2 text-white hover:text-red-400 transition">
                 <span className="text-sm font-medium">
                   {lang === "en" ? "Latest News" : "সর্বশেষ"}
