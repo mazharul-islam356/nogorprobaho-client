@@ -55,7 +55,6 @@ export default function EPaperSection() {
           </div>
         </Link>
 
-        {/* Right Date Time */}
         <div className="hidden md:flex flex-col items-end">
           <span className="text-sm text-gray-500 font-medium">
             Current Date & Time
@@ -67,7 +66,6 @@ export default function EPaperSection() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
-        {/* Top Thumbnail Pages */}
         <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent">
           {pages.map((page, index) => (
             <button
@@ -95,9 +93,7 @@ export default function EPaperSection() {
           ))}
         </div>
 
-        {/* Main Viewer */}
         <div className="mt-4 bg-white border border-gray-200 rounded-xl shadow-sm  md:pt-6">
-          {/* Top Controls */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5 px-6">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800">

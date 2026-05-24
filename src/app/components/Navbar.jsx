@@ -137,7 +137,6 @@ export default function NewsNavbar() {
               </button>
             </nav>
 
-            {/* MOBILE CATEGORY */}
             <div className="lg:hidden flex items-center justify-between h-[55px]">
               <span className="text-white font-medium">
                 {lang === "en" ? "Top Categories" : "জনপ্রিয় বিভাগ"}
