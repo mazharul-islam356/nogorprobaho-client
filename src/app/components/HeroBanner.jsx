@@ -142,7 +142,7 @@ export default function HeroSection() {
       </section>
 
       {/* SPACE FOR FLOATING CARDS */}
-      <div className="hidden xl:block h-44 bg-[#f5f5f5]" />
+      <div className="hidden xl:block h-16 bg-[#ffffff]" />
     </>
   );
 }

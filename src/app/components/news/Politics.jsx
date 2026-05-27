@@ -83,16 +83,14 @@ export default function Politics() {
   return (
     <section className="py-10 bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-4">
-        {/* HEADER */}
         <div className="mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-[#111]">
             {t.title[lang]}
           </h2>
 
-          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
+          <div className="w-12 h-0.5 bg-[#BC8734] mt-2"></div>
         </div>
 
-        {/* ROW 1: 4 CARDS GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {topRowCards.map((news) => (
             <Link key={news?._id} href={`/news/${news?._id}`}>
@@ -103,13 +101,13 @@ export default function Politics() {
                     alt="news"
                     width={500}
                     height={300}
-                    className="h-[200px] w-full object-cover group-hover:scale-105 transition duration-500"
+                    className="h-50 w-full object-cover group-hover:scale-105 transition duration-500"
                   />
-                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase rounded-sm">
+                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
                 </div>
-                <div className="p-4 flex-grow">
+                <div className="p-4 grow">
                   <h3 className="text-base font-semibold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
@@ -129,13 +127,12 @@ export default function Politics() {
           ))}
         </div>
 
-        {/* ROW 2: 2 WIDE CARDS (HORIZONTAL LAYOUT) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           {middleRowCards.slice(0, 2).map((news) => (
             <Link key={news?._id} href={`/news/${news?._id}`}>
               <article className="group bg-white border border-gray-200 rounded-sm overflow-hidden hover:shadow-lg transition h-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 h-full">
-                  <div className="relative overflow-hidden h-[220px] sm:h-auto">
+                  <div className="relative overflow-hidden h-55 sm:h-auto">
                     <Image
                       src={news?.featuredImage?.[0]}
                       alt="news"
@@ -145,7 +142,7 @@ export default function Politics() {
                     />
                   </div>
                   <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase rounded-sm w-fit mb-2">
+                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase  w-fit mb-2">
                       {getTranslatedValue(news?.category, lang)}
                     </span>
                     <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
@@ -168,7 +165,6 @@ export default function Politics() {
           ))}
         </div>
 
-        {/* ROW 3: 4x2 GRID (MASONRY STYLE) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {bottomRowCards.map((news, idx) => (
             <Link key={news?._id} href={`/news/${news?._id}`}>
