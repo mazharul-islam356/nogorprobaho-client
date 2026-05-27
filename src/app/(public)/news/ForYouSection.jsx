@@ -47,7 +47,7 @@ export default function ForYouSection() {
 
   const t = {
     title: {
-      en: "Jonosrot Special",
+      en: "Nogorprobaho Special",
       bn: "জনস্রোত স্পেশাল",
     },
   };
@@ -55,12 +55,13 @@ export default function ForYouSection() {
   return (
     <section className="w-full py-10 bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-4">
-        {/* HEADER - Same style */}
-        <h2 className="text-2xl md:text-3xl text-center font-semibold mb-8 border-y py-3 bg-white text-gray-700 flex items-center justify-center gap-3">
-          <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" />
-          {t.title[lang]}
-          <span className="w-2 h-2 bg-red-600 rounded-full animate-pulse" />
-        </h2>
+        <div className="mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#111]">
+            {t.title[lang]}
+          </h2>
+
+          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
+        </div>
 
         {/* ROW 1: 2 CARDS (Small + Medium) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -76,12 +77,12 @@ export default function ForYouSection() {
                     height={400}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
-                  <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] px-2 py-1 uppercase">
+                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase">
                     Entertainment
                   </span>
                 </div>
                 <div className="p-5 flex-grow">
-                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-red-600 transition mb-3">
+                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-3">
                     {newsData[0]?.title?.[lang]}
                   </h3>
                   <p className="text-gray-600 text-sm line-clamp-2 mb-3">
@@ -117,10 +118,10 @@ export default function ForYouSection() {
                     />
                   </div>
                   <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-red-600 text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
+                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
                       Business
                     </span>
-                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-red-600 transition mb-2">
+                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
                       {newsData[1]?.title?.[lang]}
                     </h3>
                     <p className="text-gray-600 text-sm line-clamp-2 mb-2">
@@ -159,10 +160,10 @@ export default function ForYouSection() {
                     />
                   </div>
                   <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-red-600 text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
+                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
                       Politics
                     </span>
-                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-red-600 transition mb-2">
+                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
                       {newsData[2]?.title?.[lang]}
                     </h3>
                     <p className="text-gray-600 text-sm line-clamp-2 mb-2">
@@ -198,7 +199,7 @@ export default function ForYouSection() {
                     />
                   </div>
                   <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-red-600 text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
+                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
                       Jobs
                     </span>
                     <h3 className="text-lg font-bold line-clamp-2 group-hover:text-red-600 transition mb-2">

@@ -89,7 +89,7 @@ export default function Politics() {
             {t.title[lang]}
           </h2>
 
-          <div className="w-12 h-[2px] bg-red-600 mt-2"></div>
+          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
         </div>
 
         {/* ROW 1: 4 CARDS GRID */}
@@ -105,12 +105,12 @@ export default function Politics() {
                     height={300}
                     className="h-[200px] w-full object-cover group-hover:scale-105 transition duration-500"
                   />
-                  <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] px-2 py-1 uppercase rounded-sm">
+                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase rounded-sm">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
                 </div>
                 <div className="p-4 flex-grow">
-                  <h3 className="text-base font-semibold line-clamp-2 group-hover:text-red-600 transition mb-2">
+                  <h3 className="text-base font-semibold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
                   <p className="text-gray-600 text-sm line-clamp-2 mb-3">
@@ -145,10 +145,10 @@ export default function Politics() {
                     />
                   </div>
                   <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-red-600 text-white text-[10px] px-2 py-1 uppercase rounded-sm w-fit mb-2">
+                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase rounded-sm w-fit mb-2">
                       {getTranslatedValue(news?.category, lang)}
                     </span>
-                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-red-600 transition mb-2">
+                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
                       {getTranslatedValue(news?.title, lang)}
                     </h3>
                     <p className="text-gray-600 text-sm line-clamp-2 mb-2">
@@ -187,13 +187,13 @@ export default function Politics() {
                       idx % 4 === 0 ? "h-[280px]" : "h-[180px]"
                     }`}
                   />
-                  <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] px-2 py-1 uppercase rounded-sm">
+                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase rounded-sm">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
                 </div>
                 <div className="p-4 flex-grow">
                   <h3
-                    className={`font-semibold group-hover:text-red-600 transition mb-2 ${
+                    className={`font-semibold group-hover:text-[#BC8734] transition mb-2 ${
                       idx % 4 === 0 ? "text-lg" : "text-sm"
                     }`}
                   >

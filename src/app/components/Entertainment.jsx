@@ -80,7 +80,7 @@ export default function Entertainment() {
   // ---------------- ERROR ----------------
   if (error) {
     return (
-      <div className="max-w-7xl mx-auto px-4 py-10 text-red-500 text-center">
+      <div className="max-w-7xl mx-auto px-4 py-10 text-[#BC8734] text-center">
         {error}
       </div>
     );
@@ -95,7 +95,7 @@ export default function Entertainment() {
             {t.title[lang]}
           </h2>
 
-          <div className="w-12 h-[2px] bg-red-600 mt-2"></div>
+          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
         </div>
 
         {/* ROW 1: 2 BIG FEATURED CARDS SIDE BY SIDE */}
@@ -111,10 +111,10 @@ export default function Entertainment() {
                   className="w-full h-[300px] object-cover group-hover:scale-105 transition duration-700"
                 />
                 <div className="p-5">
-                  <span className="bg-red-600 text-white text-[10px] px-2 py-1 uppercase inline-block mb-2">
+                  <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase inline-block mb-2">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
-                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-red-600 transition mb-2">
+                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
                   <p className="text-gray-600 text-sm line-clamp-2 mb-2">
@@ -146,12 +146,12 @@ export default function Entertainment() {
                     height={250}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
-                  <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] px-2 py-1 uppercase">
+                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
                 </div>
                 <div className="p-4 flex-grow flex flex-col">
-                  <h3 className="text-base font-semibold group-hover:text-red-600 transition mb-2 line-clamp-2">
+                  <h3 className="text-base font-semibold group-hover:text-[#BC8734] transition mb-2 line-clamp-2">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
                   <p className="text-gray-600 text-sm line-clamp-3 mb-2">
