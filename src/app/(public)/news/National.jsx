@@ -83,7 +83,7 @@ const National = () => {
             {title.title[lang]}
           </h2>
 
-          <div className="w-12 h-[2px] bg-red-600 mt-2"></div>
+          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
         </div>
 
         {/* TOP SECTION */}
@@ -95,11 +95,11 @@ const National = () => {
                 <article className="group grid grid-cols-1 md:grid-cols-2 items-stretch">
                   {/* CONTENT */}
                   <div className="p-5 md:p-8 flex flex-col justify-center order-2 md:order-1">
-                    <span className="text-red-600 text-sm font-semibold">
+                    <span className="text-[#BC8734] text-sm font-semibold">
                       {getTranslatedValue(featuredNews?.category, lang)}
                     </span>
 
-                    <h2 className="mt-3 text-[26px] md:text-[40px] leading-[1.2] font-bold text-[#222] line-clamp-3 group-hover:text-red-600 transition">
+                    <h2 className="mt-3 text-[26px] md:text-[40px] leading-[1.2] font-bold text-[#222] line-clamp-3 group-hover:text-[#BC8734] transition">
                       {getTranslatedValue(featuredNews?.title, lang)}
                     </h2>
 
@@ -141,7 +141,7 @@ const National = () => {
 
                   {/* CONTENT */}
                   <div className="flex-1">
-                    <h3 className="text-[22px] leading-[1.5] font-semibold text-[#222] line-clamp-3 group-hover:text-red-600 transition">
+                    <h3 className="text-[22px] leading-[1.5] font-semibold text-[#222] line-clamp-3 group-hover:text-[#BC8734] transition">
                       {getTranslatedValue(item?.title, lang)}
                     </h3>
 
@@ -175,7 +175,7 @@ const National = () => {
 
                 {/* CONTENT */}
                 <div className="pt-4">
-                  <h3 className="text-[20px] md:text-[24px] leading-[1.5] font-semibold text-[#222] line-clamp-3 group-hover:text-red-600 transition">
+                  <h3 className="text-[20px] md:text-[24px] leading-[1.5] font-semibold text-[#222] line-clamp-3 group-hover:text-[#BC8734] transition">
                     {getTranslatedValue(item?.title, lang)}
                   </h3>
 

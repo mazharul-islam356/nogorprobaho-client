@@ -63,7 +63,7 @@ export default function LatestNews() {
         <div className="mb-8">
           <div className="flex items-baseline justify-between flex-wrap gap-3">
             <div>
-              <span className="text-red-600 text-sm font-bold uppercase tracking-wider">
+              <span className="text-[#BC8734] text-sm font-bold uppercase tracking-wider">
                 {lang === "en" ? "What's New" : "নতুন কী"}
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
@@ -73,7 +73,7 @@ export default function LatestNews() {
 
             <Link
               href="/latest"
-              className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-red-600 border-b border-gray-300 hover:border-red-600 pb-0.5"
+              className="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-[#BC8734] border-b border-gray-300 hover:border-[#BC8734] pb-0.5"
             >
               {lang === "en" ? "View All" : "সব দেখুন"}
               <ArrowUpRight size={14} />
@@ -100,7 +100,7 @@ export default function LatestNews() {
 
                   <div className="absolute bottom-0 left-0 right-0 p-5">
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="bg-red-600 px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
+                      <span className="bg-[#BC8734] px-2 py-0.5 text-[10px] font-bold text-white uppercase tracking-wider">
                         {getTranslatedValue(mainNews?.category, lang)}
                       </span>
                       <span className="text-white/60 text-xs flex items-center gap-1">
@@ -139,10 +139,10 @@ export default function LatestNews() {
                       />
                     </div>
                     <div className="flex-1">
-                      <span className="text-[10px] text-red-600 font-bold uppercase">
+                      <span className="text-[10px] text-[#BC8734] font-bold uppercase">
                         {getTranslatedValue(item?.category, lang)}
                       </span>
-                      <h3 className="mt-1 text-base font-bold text-gray-800 line-clamp-2 text-ellipsis group-hover:text-red-600">
+                      <h3 className="mt-1 text-base font-bold text-gray-800 line-clamp-2 text-ellipsis group-hover:text-[#BC8734]">
                         {getTranslatedValue(item?.title, lang)}
                       </h3>
                       <div className="mt-2 text-[10px] text-gray-400">
@@ -160,7 +160,7 @@ export default function LatestNews() {
 
           {/* ডান পাশে: ছোট নিউজ লিস্ট (col-span-1) */}
           <div className="space-y-4">
-            <div className="border-l-4 border-red-600 pl-3 mb-3">
+            <div className="border-l-4 border-[#BC8734] pl-3 mb-3">
               <span className="text-xs font-bold text-gray-500 uppercase">
                 Must Read
               </span>
@@ -173,7 +173,7 @@ export default function LatestNews() {
                     {idx + 1}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 group-hover:text-red-600">
+                    <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 group-hover:text-[#BC8734]">
                       {getTranslatedValue(item?.title, lang)}
                     </h4>
                     <span className="text-[9px] text-gray-400 mt-1 block">
@@ -192,7 +192,7 @@ export default function LatestNews() {
         {/* === নিচের গ্রিড - 3x2 লেআউট (ভিন্ন স্ট্রাকচার) === */}
         <div className="mt-10 pt-6 border-t border-gray-200">
           <div className="flex items-center gap-2 mb-5">
-            <div className="w-8 h-8 bg-red-600 flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#BC8734] flex items-center justify-center">
               <Eye size={14} className="text-white" />
             </div>
             <h3 className="text-lg font-bold text-gray-800">
@@ -218,10 +218,10 @@ export default function LatestNews() {
                   </div>
 
                   <div className="p-3">
-                    <span className="text-[9px] text-red-600 font-bold uppercase tracking-wider">
+                    <span className="text-[9px] text-[#BC8734] font-bold uppercase tracking-wider">
                       {getTranslatedValue(item?.category, lang)}
                     </span>
-                    <h4 className="mt-1 text-base font-bold text-gray-800 line-clamp-1 group-hover:text-red-600">
+                    <h4 className="mt-1 text-base font-bold text-gray-800 line-clamp-1 group-hover:text-[#BC8734]">
                       {getTranslatedValue(item?.title, lang)}
                     </h4>
                     <div className="mt-2 flex items-center gap-2 text-[10px] text-gray-400">
