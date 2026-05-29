@@ -85,7 +85,7 @@ export function AppSidebar(props) {
               className="flex items-center gap-2 mb-5"
             >
               <Image
-                src="/nogorprobaho.png"
+                src="/the-syltheti.png"
                 alt="news portal"
                 width={100}
                 height={100}

@@ -68,7 +68,7 @@ export default function NewsDetailsPage() {
     return (
       <div className="flex items-center justify-center h-screen bg-white">
         <div className="flex flex-col items-center gap-4">
-          <Image src="/nogorprobaho.png" alt="logo" width={120} height={120} />
+          <Image src="/the-syltheti.png" alt="logo" width={120} height={120} />
         </div>
       </div>
     );

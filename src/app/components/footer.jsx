@@ -77,7 +77,7 @@ export default function Footer() {
           {/* BRAND */}
           <div>
             <Image
-              src="/nogorprobaho.png"
+              src="/the-syltheti.png"
               width={400}
               height={400}
               alt="logo"

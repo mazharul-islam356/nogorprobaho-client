@@ -47,7 +47,7 @@ export default function EPaperSection() {
         <Link href={`/`} className="flex items-center gap-3">
           <div className="relative md:w-20 md:h-20 w-14 h-14">
             <Image
-              src="/nogorprobaho.png"
+              src="/the-syltheti.png"
               alt="Logo"
               fill
               className="object-contain"

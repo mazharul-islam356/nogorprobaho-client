@@ -68,11 +68,11 @@ export default function NewsNavbar() {
               {/* LOGO */}
               <Link href="/">
                 <Image
-                  src="/nogorprobaho_w.png"
+                  src="/the-syltheti.png"
                   alt="logo"
                   width={400}
                   height={400}
-                  className="w-20 pt-1 object-cover"
+                  className="w-28 pt-1 object-cover"
                 />
               </Link>
             </div>
@@ -167,7 +167,7 @@ export default function NewsNavbar() {
         {/* TOP */}
         <div className="flex items-center justify-between p-5 border-b border-white/10">
           <Image
-            src="/nogorprobaho.png"
+            src="/the-syltheti.png"
             alt="logo"
             width={400}
             height={400}

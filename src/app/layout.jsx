@@ -13,8 +13,8 @@ const tiroBangla = Tiro_Bangla({
 });
 
 export const metadata = {
-  title: "নগরপ্রবাহ",
-  description: "A Bangladeshi news portal",
+  title: "The Sylheti",
+  description: "Sylhet news portal",
   icons: {
     icon: "/fav.png",
   },
