@@ -47,8 +47,8 @@ export default function ForYouSection() {
 
   const t = {
     title: {
-      en: "Nogorprobaho Special",
-      bn: "জনস্রোত স্পেশাল",
+      en: "The Sylheti Special",
+      bn: "দ্যা সিলেটি স্পেশাল",
     },
   };
 
