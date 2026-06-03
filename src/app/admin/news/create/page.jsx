@@ -118,16 +118,11 @@ export default function CreateNews() {
 
       // console.log(data);
       // return;
-      await axios.post(
-        `http://localhost:5000/
-        /api/news`,
-        data,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      await axios.post(`http://localhost:5000/api/news`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       toast.success("News created");
 
