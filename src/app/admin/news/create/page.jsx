@@ -41,7 +41,10 @@ const categories = [
   { bn: "সারাদেশ", en: "whole_country" },
   { bn: "বিশ্ব", en: "World" },
   { bn: "আন্তর্জাতিক", en: "International" },
-
+  { bn: "সিলেট", en: "Sylhet" },
+  { bn: "সুনামগঞ্জ", en: "Sunamganj" },
+  { bn: "মৌলভীবাজার", en: "Moulvibazar" },
+  { bn: "হবিগঞ্জ", en: "Habiganj" },
   { bn: "রাজনীতি", en: "Politics" },
   { bn: "মতামত", en: "Opinion" },
   { bn: "জাতীয়", en: "National" },

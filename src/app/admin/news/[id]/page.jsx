@@ -12,23 +12,34 @@ import { toast } from "sonner";
 import Image from "next/image";
 
 const categories = [
-  { bn: "বাংলাদেশ", en: "Bangladesh" },
+  { bn: "সারাদেশ", en: "whole_country" },
   { bn: "বিশ্ব", en: "World" },
   { bn: "আন্তর্জাতিক", en: "International" },
+  { bn: "সিলেট", en: "Sylhet" },
+  { bn: "সুনামগঞ্জ", en: "Sunamganj" },
+  { bn: "মৌলভীবাজার", en: "Moulvibazar" },
+  { bn: "হবিগঞ্জ", en: "Habiganj" },
   { bn: "রাজনীতি", en: "Politics" },
   { bn: "মতামত", en: "Opinion" },
   { bn: "জাতীয়", en: "National" },
+
   { bn: "বাণিজ্য", en: "Business" },
   { bn: "অর্থনীতি", en: "Economy" },
+
   { bn: "প্রযুক্তি", en: "Technology" },
   { bn: "বিজ্ঞান", en: "Science" },
+
   { bn: "খেলা", en: "Sports" },
+
   { bn: "বিনোদন", en: "Entertainment" },
   { bn: "লাইফস্টাইল", en: "Lifestyle" },
+
   { bn: "শিক্ষা", en: "Education" },
   { bn: "চাকরি", en: "Jobs" },
+
   { bn: "ধর্ম", en: "Religion" },
   { bn: "দুর্নীতি", en: "corruption" },
+
   { bn: "স্বাস্থ্য", en: "Health" },
   { bn: "পরিবেশ", en: "Environment" },
   { bn: "অপরাধ", en: "Crime" },

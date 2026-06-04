@@ -19,7 +19,13 @@ import { Eye } from "lucide-react";
 
 const categoriesList = [
   { name: { bn: "বাংলাদেশ", en: "Bangladesh" }, slug: "bangladesh" },
+  { name: { bn: "সারাদেশ", en: "Whole_country" }, slug: "whole_country" },
   { name: { bn: "বিশ্ব", en: "World" }, slug: "world" },
+
+  { name: { bn: "সিলেট", en: "Sylhet" }, slug: "sylhet" },
+  { name: { bn: "সুনামগঞ্জ", en: "Sunamganj" }, slug: "sunamganj" },
+  { name: { bn: "মৌলভীবাজার", en: "Moulvibazar" }, slug: "moulvibazar" },
+  { name: { bn: "হবিগঞ্জ", en: "Habiganj" }, slug: "habiganj" },
   { name: { bn: "আন্তর্জাতিক", en: "International" }, slug: "international" },
   { name: { bn: "রাজনীতি", en: "Politics" }, slug: "politics" },
   { name: { bn: "দুর্নীতি", en: "Corruption" }, slug: "corruption" },

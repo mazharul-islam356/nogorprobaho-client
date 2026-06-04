@@ -19,6 +19,10 @@ export default function NewsNavbar() {
   const categories = [
     { name: { bn: "বাংলাদেশ", en: "Bangladesh" }, slug: "bangladesh" },
     { name: { bn: "রাজনীতি", en: "Politics" }, slug: "politics" },
+    { name: { bn: "সিলেট", en: "Sylhet" }, slug: "sylhet" },
+    { name: { bn: "সুনামগঞ্জ", en: "Sunamganj" }, slug: "sunamganj" },
+    { name: { bn: "মৌলভীবাজার", en: "Moulvibazar" }, slug: "moulvibazar" },
+    { name: { bn: "হবিগঞ্জ", en: "Habiganj" }, slug: "habiganj" },
     { name: { bn: "আন্তর্জাতিক", en: "International" }, slug: "international" },
     { name: { bn: "খেলা", en: "Sports" }, slug: "sports" },
     { name: { bn: "বিনোদন", en: "Entertainment" }, slug: "entertainment" },
