@@ -121,7 +121,7 @@ export default function CreateNews() {
 
       // console.log(data);
       // return;
-      await axios.post(`http://localhost:5000/api/news`, data, {
+      await axios.post(`https://thesylheti-server.vercel.app/api/news`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
