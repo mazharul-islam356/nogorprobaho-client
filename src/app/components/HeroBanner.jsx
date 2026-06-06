@@ -11,6 +11,12 @@ import { getTranslatedValue } from "@/hooks/getTranslatedValue";
 
 import { getFeaturedNews } from "@/service/newsApi";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/effect-fade";
+
 const formatDate = (dateString, lang) => {
   const date = new Date(dateString);
 
@@ -31,7 +37,6 @@ export default function HeroSection() {
     const fetchNews = async () => {
       try {
         const data = await getFeaturedNews();
-
         setFeatured(Array.isArray(data) ? data : []);
       } catch (error) {
         console.log(error);
@@ -43,15 +48,12 @@ export default function HeroSection() {
     fetchNews();
   }, []);
 
-  const heroNews = featured?.[0];
-  const sideNews = featured?.slice(1, 5);
-
   if (loading) {
     return (
       <section className="relative h-screen bg-black animate-pulse">
         <div className="absolute inset-0 bg-gray-800" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-0 h-full flex items-end pb-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 h-full flex items-end pb-20">
           <div className="w-full">
             <div className="h-5 w-28 bg-gray-600 rounded-full mb-5" />
 
@@ -65,84 +67,98 @@ export default function HeroSection() {
     );
   }
 
+  if (!featured?.length) return null;
+
   return (
     <>
-      {/* HERO */}
-      <section className="relative h-screen overflow-hidden bg-black">
-        {/* BG IMAGE */}
-        {heroNews && (
-          <>
-            <Image
-              src={heroNews?.featuredImage?.[0]}
-              alt="hero-news"
-              fill
-              priority
-              className="object-cover"
-            />
+      <section className="relative h-screen overflow-hidden bg-black ">
+        <Swiper
+          modules={[Autoplay, EffectFade]}
+          effect="fade"
+          loop={true}
+          speed={1000}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          className="h-full"
+        >
+          {featured.map((news) => (
+            <SwiperSlide key={news?._id}>
+              <div className="relative h-screen">
+                {/* Background Image */}
+                <Image
+                  src={news?.featuredImage?.[0]}
+                  alt={getTranslatedValue(news?.title, lang)}
+                  fill
+                  priority
+                  className="object-cover"
+                />
 
-            {/* OVERLAY */}
-            <div className="absolute inset-0 bg-black/55 z-10" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/55 z-10" />
 
-            {/* LEFT GRADIENT */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent z-10" />
-          </>
-        )}
+                {/* Left Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent z-10" />
 
-        {/* CONTENT */}
-        <div className="relative z-20 h-full flex items-center">
-          <div className="max-w-7xl mx-auto w-full px-4 lg:px-0 pt-28 lg:pt-24">
-            <div className="max-w-4xl space-y-5">
-              {/* CATEGORY */}
-              <span className="inline-flex items-center bg-[#9d600d] text-white text-sm font-semibold px-4 py-1.5 rounded-full">
-                {getTranslatedValue(heroNews?.category, lang)}
-              </span>
+                {/* Content */}
+                <div className="relative z-20 h-full flex items-center pt-20 lg:pt-24">
+                  <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-4xl">
+                      {/* Category */}
+                      <span className="inline-flex items-center bg-[#9d600d] text-white text-sm font-semibold px-4 py-1.5 rounded-full">
+                        {getTranslatedValue(news?.category, lang)}
+                      </span>
 
-              {/* TITLE */}
-              <h1 className="text-white text-[34px]  lg:text-[55px] leading-[1.02] font-medium tracking-tight mt-3">
-                {getTranslatedValue(heroNews?.title, lang)}
-              </h1>
+                      {/* Title */}
+                      <h1 className="mt-4 text-white text-3xl sm:text-4xl lg:text-[55px] leading-tight lg:leading-[1.02] font-medium tracking-tight">
+                        {getTranslatedValue(news?.title, lang)}
+                      </h1>
 
-              {/* DESC */}
-              <p className="max-w-2xl text-white/75 text-[15px] sm:text-lg leading-8 line-clamp-3">
-                {getTranslatedValue(heroNews?.content, lang)}
-              </p>
+                      {/* Description */}
+                      <p className="mt-5 max-w-2xl text-white/75 text-sm sm:text-base lg:text-lg leading-7 line-clamp-3">
+                        {getTranslatedValue(news?.content, lang)}
+                      </p>
 
-              {/* META */}
-              <div className="flex flex-wrap items-center gap-3 text-white/60 text-sm">
-                <span>{getTranslatedValue(heroNews?.writer, lang)}</span>
+                      {/* Meta */}
+                      <div className="mt-5 flex flex-wrap items-center gap-3 text-white/60 text-sm">
+                        <span>{getTranslatedValue(news?.writer, lang)}</span>
 
-                <span className="w-1 h-1 rounded-full bg-white/50" />
+                        <span className="w-1 h-1 rounded-full bg-white/50" />
 
-                <span>
-                  {formatDate(
-                    heroNews?.publishedAt || heroNews?.createdAt,
-                    lang,
-                  )}
-                </span>
+                        <span>
+                          {formatDate(
+                            news?.publishedAt || news?.createdAt,
+                            lang,
+                          )}
+                        </span>
+                      </div>
+
+                      {/* Button */}
+                      <div className="mt-7">
+                        <Link href={`/news/${news?._id}`}>
+                          <button className="group flex items-center gap-1 bg-white hover:bg-[#9d600d] cursor-pointer hover:text-white transition-all duration-300 text-black px-7 py-3 rounded-full font-semibold">
+                            {lang === "en"
+                              ? "Read Full Story"
+                              : "বিস্তারিত পড়ুন"}
+
+                            <ChevronRight
+                              size={18}
+                              className="group-hover:translate-x-1 transition"
+                            />
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-              {/* BUTTON */}
-              <div>
-                <Link href={`/news/${heroNews?._id}`}>
-                  <button className="group flex items-center bg-white hover:bg-[#9d600d] cursor-pointer hover:text-white transition-all duration-300 text-black px-7 py-3 rounded-full font-semibold">
-                    {lang === "en" ? "Read Full Story" : "বিস্তারিত পড়ুন"}
-
-                    <ChevronRight
-                      size={18}
-                      className="group-hover:translate-x-1 transition"
-                    />
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* BOTTOM CARDS */}
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </section>
 
-      {/* SPACE FOR FLOATING CARDS */}
-      <div className="hidden xl:block h-16 bg-[#ffffff]" />
+      <div className="hidden xl:block h-16 bg-white" />
     </>
   );
 }

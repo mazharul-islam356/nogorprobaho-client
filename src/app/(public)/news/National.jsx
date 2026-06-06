@@ -94,7 +94,7 @@ const National = () => {
               <Link href={`/news/${featuredNews?._id}`}>
                 <article className="group grid grid-cols-1 md:grid-cols-2 items-stretch">
                   {/* CONTENT */}
-                  <div className="p-5 md:p-8 flex flex-col justify-center order-2 md:order-1">
+                  <div className="pt-5 md:p-8 flex flex-col justify-center order-2 md:order-1">
                     <span className="text-[#BC8734] text-sm font-semibold">
                       {getTranslatedValue(featuredNews?.category, lang)}
                     </span>
@@ -121,7 +121,7 @@ const National = () => {
                       alt="featured"
                       width={900}
                       height={700}
-                      className="w-full h-[260px] md:h-full object-cover group-hover:scale-105 duration-700 transition"
+                      className="w-full h-52 md:h-full object-cover group-hover:scale-105 duration-700 transition"
                     />
                   </div>
                 </article>
@@ -135,17 +135,17 @@ const National = () => {
               <Link key={item?._id} href={`/news/${item?._id}`}>
                 <article className="group p-5 flex gap-4">
                   {/* NUMBER */}
-                  <div className="text-[58px] leading-none font-bold text-gray-300 italic">
+                  <div className="md:text-[58px] text-2xl leading-none font-bold text-gray-300 italic">
                     {index + 1}
                   </div>
 
                   {/* CONTENT */}
                   <div className="flex-1">
-                    <h3 className="text-[22px] leading-[1.5] font-semibold text-[#222] line-clamp-3 group-hover:text-[#BC8734] transition">
+                    <h3 className="md:text-[22px] text-md leading-[1.5] font-semibold text-[#222] line-clamp-3 group-hover:text-[#BC8734] transition">
                       {getTranslatedValue(item?.title, lang)}
                     </h3>
 
-                    <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
+                    <div className="md:mt-4 mt-1 flex items-center gap-2 md:text-sm text-xs text-gray-500">
                       <Clock3 size={14} />
 
                       {formatDateRelative(item?.publishedAt, lang)}

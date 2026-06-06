@@ -81,7 +81,7 @@ export default function Politics() {
   }
 
   return (
-    <section className="py-10 bg-[#fafafa]">
+    <section className="pt-10 bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-8">
           <h2 className="text-2xl md:text-3xl font-bold text-[#111]">

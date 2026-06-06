@@ -87,7 +87,7 @@ export default function Economy() {
   }
 
   return (
-    <section className="py-10 bg-[#fafafa]">
+    <section className="pt-10 bg-[#fafafa]">
       <div className="max-w-7xl mx-auto px-4">
         {/* HEADER - Same as politics */}
         <div className="mb-8">
@@ -108,7 +108,7 @@ export default function Economy() {
                   alt="featured"
                   width={800}
                   height={500}
-                  className="w-full h-[300px] object-cover group-hover:scale-105 transition duration-700"
+                  className="w-full h-52 md:h-75 object-cover group-hover:scale-105 transition duration-700"
                 />
                 <div className="p-5">
                   <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase inline-block mb-2">

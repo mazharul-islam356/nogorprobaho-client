@@ -36,9 +36,8 @@ export default function Entertainment() {
 
   const newsData = entertainment?.data || [];
 
-  // SPLIT
-  const topGrid = newsData?.slice(0, 4) || []; // 2x2 (big grid)
-  const bottomGrid = newsData?.slice(4, 10) || []; // 3 columns
+  const topGrid = newsData?.slice(0, 4) || [];
+  const bottomGrid = newsData?.slice(4, 10) || [];
 
   const t = {
     title: {
@@ -49,19 +48,22 @@ export default function Entertainment() {
 
   if (loading) {
     return (
-      <section className="py-10 animate-pulse">
-        <div className="max-w-7xl mx-auto">
-          <div className="h-8 w-40 bg-gray-200 mb-6" />
+      <section className="py-6 md:py-10 animate-pulse">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="h-8 w-40 bg-gray-200 mb-6 rounded" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8">
             {[...Array(4)].map((_, i) => (
-              <div key={i} className="h-[280px] bg-gray-200" />
+              <div
+                key={i}
+                className="h-[220px] sm:h-[260px] md:h-[320px] bg-gray-200 rounded"
+              />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="h-[260px] bg-gray-200" />
+              <div key={i} className="h-[260px] bg-gray-200 rounded" />
             ))}
           </div>
         </div>
@@ -74,33 +76,37 @@ export default function Entertainment() {
   }
 
   return (
-    <section className="py-10 bg-[#fafafa]">
+    <section className="pb-6 md:py-10 bg-[#fafafa]">
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-[#111]">{t.title[lang]}</h2>
+        <div className="mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#111]">
+            {t.title[lang]}
+          </h2>
           <div className="w-14 h-[3px] bg-[#BC8734] mt-2"></div>
         </div>
 
-        {/* ROW 1: 2 COLUMN BIG GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        {/* TOP GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-8 md:mb-10">
           {topGrid.map((news) => (
             <Link key={news?._id} href={`/news/${news?._id}`}>
-              <article className="bg-white border overflow-hidden group hover:shadow-lg transition">
-                <Image
-                  src={news?.featuredImage?.[0] || "/placeholder.jpg"}
-                  alt=""
-                  width={800}
-                  height={500}
-                  className="w-full h-[320px] object-cover group-hover:scale-105 transition duration-700"
-                />
+              <article className="bg-white border overflow-hidden group hover:shadow-lg transition duration-300 h-full">
+                <div className="overflow-hidden">
+                  <Image
+                    src={news?.featuredImage?.[0] || "/placeholder.jpg"}
+                    alt={getTranslatedValue(news?.title, lang)}
+                    width={800}
+                    height={500}
+                    className="w-full h-[220px] sm:h-[260px] md:h-[320px] object-cover group-hover:scale-105 transition duration-700"
+                  />
+                </div>
 
-                <div className="p-5">
-                  <span className="text-xs bg-[#BC8734] text-white px-2 py-1 uppercase">
+                <div className="p-4 md:p-5">
+                  <span className="text-[10px] md:text-xs bg-[#BC8734] text-white px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
 
-                  <h3 className="text-xl font-bold mt-3 line-clamp-2 group-hover:text-[#BC8734]">
+                  <h3 className="text-lg md:text-xl font-bold mt-3 line-clamp-2 group-hover:text-[#BC8734] transition-colors">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
 
@@ -121,25 +127,27 @@ export default function Entertainment() {
           ))}
         </div>
 
-        {/* ROW 2: 3 COLUMN GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* BOTTOM GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {bottomGrid.map((news) => (
             <Link key={news?._id} href={`/news/${news?._id}`}>
-              <article className="bg-white border overflow-hidden group hover:shadow-lg transition h-full">
-                <Image
-                  src={news?.featuredImage?.[0] || "/placeholder.jpg"}
-                  alt=""
-                  width={600}
-                  height={400}
-                  className="w-full h-[220px] object-cover group-hover:scale-105 transition duration-500"
-                />
+              <article className="bg-white border overflow-hidden group hover:shadow-lg transition duration-300 h-full">
+                <div className="overflow-hidden">
+                  <Image
+                    src={news?.featuredImage?.[0] || "/placeholder.jpg"}
+                    alt={getTranslatedValue(news?.title, lang)}
+                    width={600}
+                    height={400}
+                    className="w-full h-[180px] sm:h-[200px] md:h-[220px] object-cover group-hover:scale-105 transition duration-500"
+                  />
+                </div>
 
                 <div className="p-4">
                   <span className="text-[10px] bg-[#BC8734] text-white px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
 
-                  <h3 className="font-semibold mt-2 line-clamp-2 group-hover:text-[#BC8734]">
+                  <h3 className="text-base md:text-lg font-semibold mt-2 line-clamp-2 group-hover:text-[#BC8734] transition-colors">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
 

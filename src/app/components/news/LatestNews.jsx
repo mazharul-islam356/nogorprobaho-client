@@ -203,28 +203,28 @@ export default function LatestNews() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
             {gridNews.map((item, idx) => (
               <Link key={item?._id} href={`/news/${item?._id}`}>
-                <div className="group border border-gray-200 hover:border-gray-400 transition-all rounded-sm">
+                <div className="group md:border border-gray-200 hover:border-gray-400 transition-all rounded-sm">
                   <div className="relative overflow-hidden bg-gray-100">
                     <Image
                       src={item?.featuredImage?.[0]}
                       alt="grid"
                       width={400}
                       height={250}
-                      className="w-full h-[180px] object-cover group-hover:scale-105 rounded-sm transition"
+                      className="w-full md:h-45 h-24 object-cover group-hover:scale-105  transition"
                     />
                     <div className="absolute top-2 left-2 bg-black/70 text-white text-[9px] font-bold px-1.5 py-0.5">
                       {idx + 1}
                     </div>
                   </div>
 
-                  <div className="p-3">
-                    <span className="text-[9px] text-[#BC8734] font-bold uppercase tracking-wider">
+                  <div className="md:p-3">
+                    <span className="text-[9px] text-[#BC8734] md:font-bold font-semibold uppercase tracking-wider">
                       {getTranslatedValue(item?.category, lang)}
                     </span>
-                    <h4 className="mt-1 text-base font-bold text-gray-800 line-clamp-1 group-hover:text-[#BC8734]">
+                    <h4 className="mt-1 md:text-base text-sm  md:font-bold font-semibold text-gray-800 line-clamp-1 group-hover:text-[#BC8734]">
                       {getTranslatedValue(item?.title, lang)}
                     </h4>
                     <div className="mt-2 flex items-center gap-2 text-[10px] text-gray-400">

@@ -123,7 +123,7 @@ export default function HomePage() {
       <SportsSection />
       <Entertainment />
       <AdBanner imageUrl="/15921561955530599699.gif" />
-      <FeaturedGrid />
+      {/* <FeaturedGrid /> */}
       <ThreeCategorySection />
       <ForYouSection />
     </div>

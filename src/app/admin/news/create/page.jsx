@@ -26,8 +26,9 @@ const initialState = {
   status: "draft",
 
   tags: "",
-  category_en: "",
-  category_bn: "",
+  category: "", // Added this
+  category_en: "", // Added this
+  category_bn: "", // Added this
 
   // NEW FLAGS
   isBreaking: 0,
@@ -119,8 +120,6 @@ export default function CreateNews() {
         data.append("images", file);
       });
 
-      // console.log(data);
-      // return;
       await axios.post(`https://thesylheti-server.vercel.app/api/news`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -160,19 +159,6 @@ export default function CreateNews() {
               placeholder="Title (English)"
             />
 
-            {/* <Textarea
-              name="summary_bn"
-              value={form.summary_bn}
-              onChange={handleChange}
-              placeholder="Summary (Bangla)"
-            />
-            <Textarea
-              name="summary_en"
-              value={form.summary_en}
-              onChange={handleChange}
-              placeholder="Summary (English)"
-            /> */}
-
             <Textarea
               rows={6}
               name="content_bn"
@@ -194,7 +180,6 @@ export default function CreateNews() {
         </div>
 
         {/* RIGHT */}
-
         <div className="border border-gray-200 rounded-xl bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
           <input
             type="file"
@@ -568,7 +553,7 @@ export default function CreateNews() {
       <Button
         onClick={handleSubmit}
         disabled={loading}
-        className="w-full bg-teal-700 rounded-sm cursor-pointer hover:font-semibold transition duration-300 py-5"
+        className="w-full bg-[#BC8734] rounded-sm cursor-pointer hover:font-semibold transition duration-300 py-5"
       >
         <Plus />
         {loading ? "Publishing..." : "Create News"}

@@ -70,18 +70,18 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#e1ded8] border-t md:pt-8">
+    <footer className="bg-[#e1ded8] border-t md:pt-2">
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* GRID */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* BRAND */}
           <div>
             <Image
-              src="/the-syltheti.png"
+              src="/the_sylheti_black.png"
               width={400}
               height={400}
               alt="logo"
-              className="object-cover w-32"
+              className="object-cover w-40"
             />
 
             <p className="text-gray-600 mt-3 text-sm leading-relaxed">
@@ -105,7 +105,7 @@ export default function Footer() {
 
             <ul className="space-y-2 text-sm text-gray-600">
               {categories[lang].map((item, i) => (
-                <li key={i} className="hover:text-teal-800 cursor-pointer">
+                <li key={i} className="hover:text-[#BC8734] cursor-pointer">
                   {item}
                 </li>
               ))}
@@ -120,7 +120,7 @@ export default function Footer() {
 
             <ul className="space-y-2 text-sm text-gray-600">
               {links[lang].map((item, i) => (
-                <li key={i} className="hover:text-teal-800 cursor-pointer">
+                <li key={i} className="hover:text-[#BC8734] cursor-pointer">
                   {item}
                 </li>
               ))}
@@ -153,9 +153,9 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder={t.emailPlaceholder[lang]}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-l-sm focus:outline-none focus:border-teal-800 text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-l-sm focus:outline-none focus:border-[#BC8734] text-sm"
                 />
-                <button className="bg-teal-800 text-white px-4 rounded-r-sm hover:bg-teal-700 transition">
+                <button className="bg-[#BC8734] text-white px-4 rounded-r-xs hover:bg-[#a87728] transition">
                   {t.subscribe[lang]}
                 </button>
               </div>

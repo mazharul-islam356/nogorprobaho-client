@@ -67,7 +67,7 @@ export default function ThreeCategorySection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {sections.map((section, idx) => {
             const mainNews = section?.data?.[0];
-            const sideNews = section?.data?.slice(1, 5);
+            const sideNews = section?.data?.slice(1, 3);
 
             return (
               <div key={idx}>
@@ -117,7 +117,7 @@ export default function ThreeCategorySection() {
                 )}
 
                 {/* SIDE NEWS LIST */}
-                <div className="space-y-3">
+                <div className="flex flex-col gap-2">
                   {sideNews.map((news, i) => (
                     <Link key={i} href={`/news/${news?._id || "#"}`}>
                       <article className="group flex gap-3 bg-white border border-gray-200 p-3 hover:shadow-lg transition">

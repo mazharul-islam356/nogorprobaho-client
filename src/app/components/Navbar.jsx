@@ -61,14 +61,6 @@ export default function NewsNavbar() {
           <div className="max-w-7xl mx-auto px-4 lg:px-0 h-16 flex items-center justify-between">
             {/* LEFT */}
             <div className="flex items-center gap-4">
-              {/* MOBILE MENU */}
-              <button
-                onClick={() => setIsOpen(true)}
-                className="lg:hidden text-white"
-              >
-                <Menu size={28} />
-              </button>
-
               {/* LOGO */}
               <Link href="/">
                 <Image
@@ -97,13 +89,21 @@ export default function NewsNavbar() {
 
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 border border-white/15 hover:bg-white/10 transition rounded-full px-4 py-2 text-white"
+                className="flex items-center gap-2 border border-white/15 hover:bg-white/10 transition rounded-full md:px-4 px-3 py-1.5 md:py-2 text-white"
               >
-                <Globe2 size={16} />
+                <Globe2 size={15} />
 
-                <span className="text-sm font-medium">
+                <span className="md:text-sm text-xs font-medium mt-1 md:mt-0">
                   {lang === "en" ? "বাংলা" : "EN"}
                 </span>
+              </button>
+
+              {/* MOBILE MENU */}
+              <button
+                onClick={() => setIsOpen(true)}
+                className="lg:hidden text-white"
+              >
+                <Menu size={26} />
               </button>
             </div>
           </div>
@@ -140,16 +140,6 @@ export default function NewsNavbar() {
                 <ChevronRight size={18} />
               </button>
             </nav>
-
-            <div className="lg:hidden flex items-center justify-between h-[55px]">
-              <span className="text-white font-medium">
-                {lang === "en" ? "Top Categories" : "জনপ্রিয় বিভাগ"}
-              </span>
-
-              <button onClick={() => setIsOpen(true)} className="text-white">
-                <Menu size={24} />
-              </button>
-            </div>
           </div>
         </div>
       </header>

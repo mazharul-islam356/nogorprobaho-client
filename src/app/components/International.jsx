@@ -70,7 +70,7 @@ export default function International() {
   }
 
   return (
-    <section className="py-8 lg:py-12 bg-white overflow-hidden">
+    <section className="py-10 lg:py-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-5 lg:px-0">
         {/* TITLE */}
         <div className="mb-8">
@@ -95,7 +95,7 @@ export default function International() {
                       alt="featured"
                       width={1000}
                       height={700}
-                      className="w-full h-[320px] md:h-[500px] object-cover group-hover:scale-105 duration-700 transition"
+                      className="w-full h-[270px] md:h-[500px] object-cover group-hover:scale-105 duration-700 transition"
                     />
                   </div>
 

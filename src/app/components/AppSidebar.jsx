@@ -80,12 +80,9 @@ export function AppSidebar(props) {
       <SidebarMenu>
         <SidebarMenuItem>
           <SidebarMenuButton asChild>
-            <Link
-              href="/admin/dashboard"
-              className="flex items-center gap-2 mb-5"
-            >
+            <Link href="/" className="flex items-center gap-2 mb-5">
               <Image
-                src="/the-syltheti.png"
+                src="/the_sylheti_black.png"
                 alt="news portal"
                 width={100}
                 height={100}
