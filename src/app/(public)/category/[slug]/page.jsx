@@ -48,6 +48,7 @@ export default function NewsPage() {
   useEffect(() => {
     // Find category info based on slug
     const foundCategory = categories.find((cat) => cat.slug === slug);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCategoryInfo(foundCategory);
   }, [slug]);
 
@@ -97,12 +98,12 @@ export default function NewsPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pb-10 mt-40">
+    <div className="max-w-7xl mx-auto px-4 pb-10 mt-20 md:mt-40">
       <AdBanner imageUrl="/c-ad.jpg" />
 
       {/* PAGE TITLE */}
-      <div className="py-6 border-b mb-6">
-        <h1 className="text-3xl font-bold capitalize text-[#57832A]">
+      <div className="md:py-6 py-3 border-b md:mb-6">
+        <h1 className="md:text-3xl text-2xl font-bold capitalize text-[#57832A]">
           {lang === "bn"
             ? `${getCategoryName()} খবর`
             : `${getCategoryName()} News`}
@@ -116,16 +117,16 @@ export default function NewsPage() {
           {news[0] && (
             <Link href={`/news/${news[0]._id}`}>
               <div className="group cursor-pointer">
-                <div className="relative w-full h-[400px]">
+                <div className="relative w-full md:h-[400px] h-60">
                   <Image
                     src={news[0]?.featuredImage?.[0] || "/news02.jpg"}
                     alt=""
                     fill
-                    className="object-cover rounded-xl"
+                    className="object-cover rounded-xs"
                   />
                 </div>
 
-                <h2 className="text-3xl font-bold mt-4 group-hover:text-[#57832A] transition">
+                <h2 className="md:text-3xl text-2xl font-bold mt-4 group-hover:text-[#57832A] transition">
                   {getLocalizedTitle(news[0])}
                 </h2>
 
@@ -154,12 +155,12 @@ export default function NewsPage() {
           )}
 
           {/* NEWS LIST */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
             {news.slice(1, 7).map((item) => (
               <Link href={`/news/${item._id}`} key={item._id}>
-                <div className="group cursor-pointer border border-gray-200 rounded-sm overflow-hidden hover:shadow-lg transition duration-300 bg-white h-full flex flex-col">
+                <div className="group cursor-pointer border border-gray-200 rounded-xs overflow-hidden hover:shadow-lg transition duration-300 bg-white h-full flex flex-col">
                   {/* IMAGE */}
-                  <div className="relative w-full h-44 overflow-hidden">
+                  <div className="relative w-full h-28 md:h-44 overflow-hidden">
                     <Image
                       src={item?.featuredImage?.[0] || "/news04.jpg"}
                       alt={getLocalizedTitle(item)}
@@ -201,7 +202,7 @@ export default function NewsPage() {
         {/* ================= RIGHT SIDEBAR ================= */}
         <div className="space-y-6">
           {/* CATEGORY CARD */}
-          <div className="bg-green-50 border border-green-100 rounded-xl p-5">
+          <div className="bg-green-50 border border-green-100 rounded-xs hidden md:block p-5">
             <h2 className="text-2xl font-bold text-[#57832A] mb-2 capitalize">
               {lang === "bn"
                 ? `${getCategoryName()} বিভাগ`
@@ -216,7 +217,7 @@ export default function NewsPage() {
           </div>
 
           {/* TRENDING */}
-          <div className="border rounded-xl p-5">
+          <div className="border rounded-xs p-5">
             <h3 className="text-xl font-bold border-b pb-3 mb-4 text-[#57832A]">
               {lang === "bn" ? "ট্রেন্ডিং খবর" : "Trending News"}
             </h3>
@@ -256,7 +257,7 @@ export default function NewsPage() {
                       src={item?.featuredImage?.[0] || "/img1.jpg"}
                       alt=""
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover rounded-xs"
                     />
                   </div>
 

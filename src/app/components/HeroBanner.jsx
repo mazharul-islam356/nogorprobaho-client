@@ -137,7 +137,7 @@ export default function HeroSection() {
                       {/* Button */}
                       <div className="mt-7">
                         <Link href={`/news/${news?._id}`}>
-                          <button className="group flex items-center gap-1 bg-white hover:bg-[#57832A] cursor-pointer hover:text-white transition-all duration-300 text-black px-7 py-3 rounded-full font-semibold">
+                          <button className="group flex items-center gap-1 bg-white hover:bg-[#57832A] cursor-pointer hover:text-white transition-all duration-300 text-black md:px-7 px-4 py-2 md:py-3 rounded-full font-semibold text-sm md:text-base">
                             {lang === "en"
                               ? "Read Full Story"
                               : "বিস্তারিত পড়ুন"}

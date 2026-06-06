@@ -66,9 +66,17 @@ export default function NewsDetailsPage() {
   // ---------------- LOADING ----------------
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-white">
+      <div className="flex flex-col gap-2.5 items-center justify-center h-screen bg-white">
         <div className="flex flex-col items-center gap-4">
-          <Image src="/the-syltheti.png" alt="logo" width={120} height={120} />
+          <Image
+            src="/the_sylheti_black.png"
+            alt="logo"
+            width={120}
+            height={120}
+          />
+        </div>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="w-12 h-12 border-4 border-gray-300 border-t-[#57832A] rounded-full animate-spin"></div>
         </div>
       </div>
     );
@@ -76,18 +84,18 @@ export default function NewsDetailsPage() {
 
   if (!news) {
     return (
-      <div className="text-center py-24 text-teal-500">News not found</div>
+      <div className="text-center py-24 text-[#57832A]">News not found</div>
     );
   }
 
   return (
-    <div className="bg-white mt-28">
+    <div className="bg-white md:mt-28 mt-16">
       <div className="max-w-7xl mx-auto px-4 py-6 md:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* LEFT CONTENT */}
           <div className="lg:col-span-8">
             {/* CATEGORY */}
-            <span className="inline-block text-teal-600 text-sm font-medium border-b border-teal-600 pb-1">
+            <span className="inline-block text-[#57832A] text-sm font-medium border-b border-[#57832A] pb-1">
               {news.category?.[lang]}
             </span>
 

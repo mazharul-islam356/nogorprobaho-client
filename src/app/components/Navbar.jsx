@@ -9,6 +9,7 @@ import { ChevronRight, Globe2, Menu, Play, X } from "lucide-react";
 import { useLanguage } from "@/context/lagnguageContext";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
 import { Newspaper } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 export default function NewsNavbar() {
   const { lang, toggleLanguage } = useLanguage();
@@ -27,9 +28,7 @@ export default function NewsNavbar() {
     { name: { bn: "খেলা", en: "Sports" }, slug: "sports" },
     { name: { bn: "বিনোদন", en: "Entertainment" }, slug: "entertainment" },
     { name: { bn: "বাণিজ্য", en: "Business" }, slug: "business" },
-    { name: { bn: "প্রযুক্তি", en: "Technology" }, slug: "technology" },
-    { name: { bn: "ধর্ম", en: "Religion" }, slug: "religion" },
-    { name: { bn: "স্বাস্থ্য", en: "Health" }, slug: "health" },
+
     { name: { bn: "চাকরি", en: "Jobs" }, slug: "jobs" },
   ];
 
@@ -52,12 +51,19 @@ export default function NewsNavbar() {
       day: "numeric",
     },
   ).format(new Date());
+  const pathname = usePathname();
 
+  const isDarkBg =
+    pathname.startsWith("/categories") || pathname.startsWith("/news");
   return (
     <>
       <header className="absolute  top-0 left-0 w-full z-50">
         {/* TOP NAVBAR */}
-        <div className="border-b bg-black/20 backdrop-blur-md border-white/10">
+        <div
+          className={`border-b ${
+            isDarkBg ? "bg-black/80" : "bg-black/20"
+          } backdrop-blur-md border-white/10`}
+        >
           <div className="max-w-7xl mx-auto px-4 lg:px-0 h-16 flex items-center justify-between">
             {/* LEFT */}
             <div className="flex items-center gap-4">
@@ -89,7 +95,7 @@ export default function NewsNavbar() {
 
               <button
                 onClick={toggleLanguage}
-                className="flex items-center gap-2 border border-white/15 hover:bg-white/10 transition rounded-full md:px-4 px-3 py-1.5 md:py-2 text-white"
+                className="flex items-center gap-2 border border-white/15 hover:bg-white/10 transition rounded-full md:px-4 px-3 py-1.5 md:py-2 text-white cursor-pointer"
               >
                 <Globe2 size={15} />
 
@@ -113,7 +119,9 @@ export default function NewsNavbar() {
           className={`w-full transition-all duration-300 ${
             isSticky
               ? "fixed top-0 left-0 bg-black/90 backdrop-blur-xl shadow-xl border-b border-white/10"
-              : "relative bg-black/20 backdrop-blur-md border-b border-white/10"
+              : `relative ${
+                  isDarkBg ? "bg-black/80" : "bg-black/20"
+                } backdrop-blur-md border-b border-white/10`
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 lg:px-0">
