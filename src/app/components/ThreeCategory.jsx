@@ -72,7 +72,7 @@ export default function ThreeCategorySection() {
             return (
               <div key={idx}>
                 {/* SECTION HEADER */}
-                <div className="border-b-2 border-[#BC8734] mb-4 pb-2">
+                <div className="border-b-2 border-[#57832A] mb-4 pb-2">
                   <h2 className="text-xl font-semibold text-gray-800 inline-block">
                     {section.title[lang]}
                   </h2>
@@ -92,13 +92,13 @@ export default function ThreeCategorySection() {
                           height={400}
                           className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                         />
-                        <span className="absolute top-3 left-3 bg-[#BC8734] text-white  text-[10px] px-2 py-1 uppercase">
+                        <span className="absolute top-3 left-3 bg-[#57832A] text-white  text-[10px] px-2 py-1 uppercase">
                           {getTranslatedValue(mainNews?.category, lang)}
                         </span>
                       </div>
 
                       <div className="p-4">
-                        <h3 className="text-lg font-bold line-clamp-1 group-hover:text-[#BC8734] transition mb-2 ">
+                        <h3 className="text-lg font-bold line-clamp-1 group-hover:text-[#57832A] transition mb-2 ">
                           {getTranslatedValue(mainNews?.title, lang)}
                         </h3>
                         <p className="text-gray-600 text-sm line-clamp-2 mb-2">
@@ -131,7 +131,7 @@ export default function ThreeCategorySection() {
                           />
                         </div>
                         <div className="flex-1">
-                          <h4 className="text-sm font-medium line-clamp-2 group-hover:text-[#BC8734] transition mb-1">
+                          <h4 className="text-sm font-medium line-clamp-2 group-hover:text-[#57832A] transition mb-1">
                             {getTranslatedValue(news?.title, lang)}
                           </h4>
                           <div className="text-xs text-gray-500 flex items-center gap-1">

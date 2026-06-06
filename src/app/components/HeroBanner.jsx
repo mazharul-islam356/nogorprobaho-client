@@ -106,7 +106,7 @@ export default function HeroSection() {
                   <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl">
                       {/* Category */}
-                      <span className="inline-flex items-center bg-[#9d600d] text-white text-sm font-semibold px-4 py-1.5 rounded-full">
+                      <span className="inline-flex items-center bg-[#57832A] text-white text-sm font-semibold px-4 py-1.5 rounded-full">
                         {getTranslatedValue(news?.category, lang)}
                       </span>
 
@@ -137,7 +137,7 @@ export default function HeroSection() {
                       {/* Button */}
                       <div className="mt-7">
                         <Link href={`/news/${news?._id}`}>
-                          <button className="group flex items-center gap-1 bg-white hover:bg-[#9d600d] cursor-pointer hover:text-white transition-all duration-300 text-black px-7 py-3 rounded-full font-semibold">
+                          <button className="group flex items-center gap-1 bg-white hover:bg-[#57832A] cursor-pointer hover:text-white transition-all duration-300 text-black px-7 py-3 rounded-full font-semibold">
                             {lang === "en"
                               ? "Read Full Story"
                               : "বিস্তারিত পড়ুন"}

@@ -80,7 +80,7 @@ export default function NewsNavbar() {
             <div className="flex items-center gap-3">
               <Link
                 href={`/e-paper`}
-                className="hidden sm:flex items-center gap-2 bg-[#9d600d] hover:bg-[#c58a1d] transition text-white text-sm font-medium px-5 py-2 rounded-full"
+                className="hidden sm:flex items-center gap-2 bg-[#57832A] hover:bg-[#092F12] transition text-white text-sm font-medium px-5 py-2 rounded-full"
               >
                 <Newspaper size={15} />
 
@@ -132,7 +132,7 @@ export default function NewsNavbar() {
                 ))}
               </div>
 
-              <button className="flex items-center gap-2 text-white hover:text-red-400 transition">
+              <button className="flex items-center gap-2 text-white cursor-pointer hover:text-[#70a938] transition">
                 <span className="text-sm font-medium">
                   {lang === "en" ? "Latest News" : "সর্বশেষ"}
                 </span>

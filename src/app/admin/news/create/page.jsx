@@ -553,7 +553,7 @@ export default function CreateNews() {
       <Button
         onClick={handleSubmit}
         disabled={loading}
-        className="w-full bg-[#BC8734] rounded-sm cursor-pointer hover:font-semibold transition duration-300 py-5"
+        className="w-full bg-[#57832A] rounded-sm cursor-pointer hover:font-semibold transition duration-300 py-5"
       >
         <Plus />
         {loading ? "Publishing..." : "Create News"}

@@ -13,7 +13,7 @@ const tiroBangla = Tiro_Bangla({
 });
 
 export const metadata = {
-  title: "The Sylheti",
+  title: "দ্যা সিলেটি",
   description: "Sylhet news portal",
   icons: {
     icon: "/fav.png",

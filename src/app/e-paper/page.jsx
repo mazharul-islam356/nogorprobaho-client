@@ -41,123 +41,149 @@ export default function EPaperSection() {
   }, []);
 
   return (
-    <section className="w-full min-h-screen bg-[#f3f3f3] py-6">
-      <div className="bg-white border border-gray-200  px-10 py-2 flex sticky top-0 items-center justify-between mb-6 z-500">
-        {/* Left Logo */}
-        <Link href={`/`} className="flex items-center gap-3">
-          <div className="relative md:w-20 md:h-20 w-14 h-14">
-            <Image
-              src="/the-syltheti.png"
-              alt="Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-        </Link>
-
-        <div className="hidden md:flex flex-col items-end">
-          <span className="text-sm text-gray-500 font-medium">
-            Current Date & Time
-          </span>
-
-          <span className="text-base font-semibold text-gray-800">
-            {currentTime}
-          </span>
-        </div>
-      </div>
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent">
-          {pages.map((page, index) => (
-            <button
-              key={index}
-              onClick={() => setSelectedPage(index)}
-              className={`relative min-w-[110px] border-2 transition-all duration-300 rounded-md overflow-hidden bg-white ${
-                selectedPage === index
-                  ? "border-red-500 shadow-lg scale-[1.02]"
-                  : "border-gray-200 hover:border-gray-400"
-              }`}
-            >
-              <div className="relative w-30 h-48 p-2">
+    <section className="w-full font-sans bg-[#f8f9fa] min-h-screen pb-8">
+      {/* Sticky Header */}
+      <div className="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between py-1">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2 sm:gap-3">
+              <div>
                 <Image
-                  src={page}
-                  alt={`Page ${index + 1}`}
-                  fill
-                  className="object-cover p-1"
+                  src="/the_sylheti_black.png"
+                  alt="Logo"
+                  width={500}
+                  height={500}
+                  className="object-contain w-20 h-14 md:w-36 md:h-20"
                 />
               </div>
+            </Link>
 
-              <div className="absolute bottom-0 left-0 w-full bg-black/70 text-white text-xs py-1 text-center font-medium">
-                Page {String(index + 1).padStart(2, "0")}
-              </div>
-            </button>
-          ))}
+            {/* Date/Time - Hidden on mobile, visible on md+ */}
+            <div className="hidden md:flex flex-col items-end">
+              <span className="text-xs text-gray-500 font-medium">
+                Current Date & Time
+              </span>
+              <span className="text-sm font-semibold text-gray-800">
+                {currentTime}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-6">
+        {/* Thumbnail Strip - Horizontal Scroll */}
+        <div className="relative mb-6">
+          <div className="overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent">
+            <div className="flex gap-3 sm:gap-4 min-w-max">
+              {pages.map((page, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedPage(index)}
+                  className={`relative flex-shrink-0 transition-all duration-200 rounded-lg overflow-hidden bg-white shadow-sm ${
+                    selectedPage === index
+                      ? "ring-2 ring-[#57832A] ring-offset-2 scale-[1.02]"
+                      : "border border-gray-200 hover:border-gray-300 hover:shadow-md"
+                  }`}
+                >
+                  <div className="relative w-20 h-28 sm:w-24 sm:h-32 md:w-28 md:h-40">
+                    <Image
+                      src={page}
+                      alt={`Page ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 80px, (max-width: 768px) 96px, 112px"
+                    />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white text-[10px] sm:text-xs py-1 text-center font-medium backdrop-blur-[2px]">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="mt-4 bg-white border border-gray-200 rounded-xl shadow-sm  md:pt-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5 px-6">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-                Today Newspaper
-              </h2>
+        {/* Main Viewer Card */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+          {/* Header with title and nav buttons */}
+          <div className="p-4 sm:p-5 border-b border-gray-100">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 tracking-tight">
+                  E-Newspaper
+                </h1>
+                <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
+                  Page {selectedPage + 1} of {pages.length}
+                </p>
+              </div>
 
-              <p className="text-sm text-gray-500 mt-1">
-                Viewing Page {selectedPage + 1} of {pages.length}
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() =>
-                  setSelectedPage((prev) =>
-                    prev === 0 ? pages.length - 1 : prev - 1,
-                  )
-                }
-                className="px-5 py-2.5 border border-gray-300 rounded-lg hover:bg-gray-100 text-sm font-medium transition-all"
-              >
-                Prev Page
-              </button>
-
-              <button
-                onClick={() =>
-                  setSelectedPage((prev) =>
-                    prev === pages.length - 1 ? 0 : prev + 1,
-                  )
-                }
-                className="px-5 py-2.5 bg-black text-white rounded-lg hover:bg-gray-800 text-sm font-medium transition-all"
-              >
-                Next Page
-              </button>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <button
+                  onClick={() =>
+                    setSelectedPage((prev) =>
+                      prev === 0 ? pages.length - 1 : prev - 1,
+                    )
+                  }
+                  className="px-4 sm:px-5 py-2 text-sm font-medium rounded-lg border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all active:scale-[0.98]"
+                >
+                  ← Prev
+                </button>
+                <button
+                  onClick={() =>
+                    setSelectedPage((prev) =>
+                      prev === pages.length - 1 ? 0 : prev + 1,
+                    )
+                  }
+                  className="px-4 sm:px-5 py-2 text-sm font-medium rounded-lg bg-[#57832A] text-white hover:bg-[#456a21] transition-all active:scale-[0.98] shadow-sm"
+                >
+                  Next →
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Large Paper Preview */}
-          <div className="flex justify-center aspect-[3/4]">
-            <div className="relative w-full max-w-5xl  bg-gray-100 border border-gray-200 rounded-xl overflow-hidden">
+          {/* Paper Preview - Responsive aspect ratio */}
+          <div className="p-4 sm:p-6 bg-gray-50">
+            <div className="relative aspect-[3/4] md:aspect-[2/3] lg:aspect-[3/4] max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden border border-gray-200">
               <Image
                 src={pages[selectedPage]}
-                alt={`Page ${selectedPage + 1}`}
+                alt={`Newspaper Page ${selectedPage + 1}`}
                 fill
                 priority
                 className="object-contain"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1024px"
               />
             </div>
           </div>
 
-          {/* Bottom Pagination */}
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
-            {pages.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setSelectedPage(index)}
-                className={`w-11 h-11 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                  selectedPage === index
-                    ? "bg-red-600 text-white shadow-md"
-                    : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                }`}
-              >
-                {index + 1}
-              </button>
-            ))}
+          {/* Page Pagination Dots/Circles */}
+          <div className="px-4 sm:px-6 py-4 sm:py-5 border-t border-gray-100 bg-white">
+            <div className="flex flex-wrap justify-center gap-2">
+              {pages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedPage(index)}
+                  className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
+                    selectedPage === index
+                      ? "bg-[#57832A] text-white shadow-md scale-105"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile-only date/time (shown only on small screens) */}
+        <div className="mt-6 text-center md:hidden">
+          <div className="inline-block bg-white/80 backdrop-blur-sm rounded-full px-4 py-1.5 shadow-sm border border-gray-100">
+            <span className="text-xs text-gray-500 font-medium">
+              {currentTime}
+            </span>
           </div>
         </div>
       </div>

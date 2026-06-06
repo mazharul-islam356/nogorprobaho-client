@@ -83,7 +83,7 @@ export default function ForYouSection() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#111]">
             {t.title[lang]}
           </h2>
-          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
+          <div className="w-12 h-[2px] bg-[#57832A] mt-2"></div>
         </div>
 
         {/* Row 1 */}
@@ -102,13 +102,13 @@ export default function ForYouSection() {
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
 
-                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase">
+                  <span className="absolute top-3 left-3 bg-[#57832A] text-white text-[10px] px-2 py-1 uppercase">
                     {newsData[0].category[lang]}
                   </span>
                 </div>
 
                 <div className="p-5 flex-grow">
-                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-3">
+                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[#57832A] transition mb-3">
                     {newsData[0].news?.title?.[lang]}
                   </h3>
 
@@ -148,11 +148,11 @@ export default function ForYouSection() {
                   </div>
 
                   <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
+                    <span className="bg-[#57832A] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
                       {newsData[1].category[lang]}
                     </span>
 
-                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
+                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#57832A] transition mb-2">
                       {newsData[1].news?.title?.[lang]}
                     </h3>
 
@@ -193,11 +193,11 @@ export default function ForYouSection() {
                   </div>
 
                   <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
+                    <span className="bg-[#57832A] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
                       {item.category[lang]}
                     </span>
 
-                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
+                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#57832A] transition mb-2">
                       {item.news?.title?.[lang]}
                     </h3>
 

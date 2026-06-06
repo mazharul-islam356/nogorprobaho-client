@@ -105,7 +105,7 @@ export default function Footer() {
 
             <ul className="space-y-2 text-sm text-gray-600">
               {categories[lang].map((item, i) => (
-                <li key={i} className="hover:text-[#BC8734] cursor-pointer">
+                <li key={i} className="hover:text-[#57832A] cursor-pointer">
                   {item}
                 </li>
               ))}
@@ -120,7 +120,7 @@ export default function Footer() {
 
             <ul className="space-y-2 text-sm text-gray-600">
               {links[lang].map((item, i) => (
-                <li key={i} className="hover:text-[#BC8734] cursor-pointer">
+                <li key={i} className="hover:text-[#57832A] cursor-pointer">
                   {item}
                 </li>
               ))}
@@ -138,10 +138,10 @@ export default function Footer() {
                 <MapPin size={16} /> {t.location[lang]}
               </p>
               <p className="flex items-center gap-2">
-                <Phone size={16} /> +880 1865478952
+                <Phone size={16} /> +880 136047499
               </p>
               <p className="flex items-center gap-2">
-                <Mail size={16} /> info@jonosrot.com
+                <Mail size={16} /> thesylheti34@gmail.com
               </p>
             </div>
 
@@ -153,9 +153,9 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder={t.emailPlaceholder[lang]}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-l-sm focus:outline-none focus:border-[#BC8734] text-sm"
+                  className="w-full px-3 py-2 border border-[#57832A] rounded-l-xs focus:outline-none focus:border-[#57832A] text-sm"
                 />
-                <button className="bg-[#BC8734] text-white px-4 rounded-r-xs hover:bg-[#a87728] transition">
+                <button className="bg-[#57832A] text-white px-4 rounded-r-xs hover:bg-[#4d7425] transition">
                   {t.subscribe[lang]}
                 </button>
               </div>
@@ -181,7 +181,7 @@ export default function Footer() {
 /* SOCIAL ICON */
 function Social({ icon }) {
   return (
-    <div className="w-9 h-9 flex items-center justify-center border border-gray-300 rounded-full text-gray-600 hover:bg-teal-800 hover:text-white hover:border-teal-800 transition cursor-pointer">
+    <div className="w-9 h-9 flex items-center justify-center border border-[#74965771] rounded-full text-gray-600 hover:bg-[#57832A] hover:text-white hover:border-[#57832A] transition cursor-pointer">
       {icon}
     </div>
   );

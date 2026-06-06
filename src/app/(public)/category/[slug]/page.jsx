@@ -97,12 +97,12 @@ export default function NewsPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 pb-10">
+    <div className="max-w-7xl mx-auto px-4 pb-10 mt-40">
       <AdBanner imageUrl="/c-ad.jpg" />
 
       {/* PAGE TITLE */}
       <div className="py-6 border-b mb-6">
-        <h1 className="text-3xl font-bold capitalize text-teal-600">
+        <h1 className="text-3xl font-bold capitalize text-[#57832A]">
           {lang === "bn"
             ? `${getCategoryName()} খবর`
             : `${getCategoryName()} News`}
@@ -125,7 +125,7 @@ export default function NewsPage() {
                   />
                 </div>
 
-                <h2 className="text-3xl font-bold mt-4 group-hover:text-teal-500 transition">
+                <h2 className="text-3xl font-bold mt-4 group-hover:text-[#57832A] transition">
                   {getLocalizedTitle(news[0])}
                 </h2>
 
@@ -170,7 +170,7 @@ export default function NewsPage() {
 
                   {/* CONTENT */}
                   <div className="p-4 flex flex-col flex-1">
-                    <h3 className="text-lg md:text-xl font-bold leading-snug group-hover:text-teal-500 transition line-clamp-2">
+                    <h3 className="text-lg md:text-xl font-bold leading-snug group-hover:text-[#57832A] transition line-clamp-2">
                       {getLocalizedTitle(item)}
                     </h3>
 
@@ -201,8 +201,8 @@ export default function NewsPage() {
         {/* ================= RIGHT SIDEBAR ================= */}
         <div className="space-y-6">
           {/* CATEGORY CARD */}
-          <div className="bg-teal-50 border border-teal-100 rounded-xl p-5">
-            <h2 className="text-2xl font-bold text-teal-600 mb-2 capitalize">
+          <div className="bg-green-50 border border-green-100 rounded-xl p-5">
+            <h2 className="text-2xl font-bold text-[#57832A] mb-2 capitalize">
               {lang === "bn"
                 ? `${getCategoryName()} বিভাগ`
                 : `${getCategoryName()} Category`}
@@ -217,7 +217,7 @@ export default function NewsPage() {
 
           {/* TRENDING */}
           <div className="border rounded-xl p-5">
-            <h3 className="text-xl font-bold border-b pb-3 mb-4 text-teal-600">
+            <h3 className="text-xl font-bold border-b pb-3 mb-4 text-[#57832A]">
               {lang === "bn" ? "ট্রেন্ডিং খবর" : "Trending News"}
             </h3>
 
@@ -225,12 +225,12 @@ export default function NewsPage() {
               {news.slice(6, 11).map((item, index) => (
                 <Link href={`/news/${item._id}`} key={item._id}>
                   <div className="flex gap-3 group">
-                    <span className="text-2xl font-bold text-teal-500">
+                    <span className="text-2xl font-bold text-[#57832A]">
                       {index + 1}
                     </span>
 
                     <div>
-                      <p className="font-medium text-sm group-hover:text-teal-500 transition line-clamp-2">
+                      <p className="font-medium text-sm group-hover:text-[#57832A] transition line-clamp-2">
                         {getLocalizedTitle(item)}
                       </p>
 
@@ -260,7 +260,7 @@ export default function NewsPage() {
                     />
                   </div>
 
-                  <p className="text-sm font-medium mt-2 line-clamp-2 group-hover:text-teal-500 transition">
+                  <p className="text-sm font-medium mt-2 line-clamp-2 group-hover:text-[#57832A] transition">
                     {getLocalizedTitle(item)}
                   </p>
                 </div>

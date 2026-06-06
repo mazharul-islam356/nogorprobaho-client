@@ -83,7 +83,7 @@ export default function Entertainment() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#111]">
             {t.title[lang]}
           </h2>
-          <div className="w-14 h-[3px] bg-[#BC8734] mt-2"></div>
+          <div className="w-14 h-[3px] bg-[#57832A] mt-2"></div>
         </div>
 
         {/* TOP GRID */}
@@ -102,11 +102,11 @@ export default function Entertainment() {
                 </div>
 
                 <div className="p-4 md:p-5">
-                  <span className="text-[10px] md:text-xs bg-[#BC8734] text-white px-2 py-1 uppercase">
+                  <span className="text-[10px] md:text-xs bg-[#57832A] text-white px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
 
-                  <h3 className="text-lg md:text-xl font-bold mt-3 line-clamp-2 group-hover:text-[#BC8734] transition-colors">
+                  <h3 className="text-lg md:text-xl font-bold mt-3 line-clamp-2 group-hover:text-[#57832A] transition-colors">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
 
@@ -143,11 +143,11 @@ export default function Entertainment() {
                 </div>
 
                 <div className="p-4">
-                  <span className="text-[10px] bg-[#BC8734] text-white px-2 py-1 uppercase">
+                  <span className="text-[10px] bg-[#57832A] text-white px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
 
-                  <h3 className="text-base md:text-lg font-semibold mt-2 line-clamp-2 group-hover:text-[#BC8734] transition-colors">
+                  <h3 className="text-base md:text-lg font-semibold mt-2 line-clamp-2 group-hover:text-[#57832A] transition-colors">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
 

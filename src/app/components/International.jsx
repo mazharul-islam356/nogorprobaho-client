@@ -78,7 +78,7 @@ export default function International() {
             {t.title[lang]}
           </h2>
 
-          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
+          <div className="w-12 h-[2px] bg-[#57832A] mt-2"></div>
         </div>
 
         {/* MAIN LAYOUT */}
@@ -146,7 +146,7 @@ export default function International() {
 
                     {/* CONTENT */}
                     <div className="flex-1">
-                      <h3 className="text-[18px] leading-7 font-bold text-[#111] line-clamp-2 group-hover:text-[#BC8734] transition">
+                      <h3 className="text-[18px] leading-7 font-bold text-[#111] line-clamp-2 group-hover:text-[#57832A] transition">
                         {getTranslatedValue(news?.title, lang)}
                       </h3>
 
@@ -182,7 +182,7 @@ export default function International() {
 
                     {/* CONTENT */}
                     <div className="pt-3">
-                      <h4 className="text-[14px] md:text-[16px] leading-6 font-semibold text-[#111] line-clamp-3 group-hover:text-[#BC8734] transition">
+                      <h4 className="text-[14px] md:text-[16px] leading-6 font-semibold text-[#111] line-clamp-3 group-hover:text-[#57832A] transition">
                         {getTranslatedValue(news?.title, lang)}
                       </h4>
 

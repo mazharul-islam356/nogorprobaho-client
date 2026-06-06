@@ -109,20 +109,20 @@ export default function HomePage() {
       {/* <BreakingTicker news={news.slice(0, 5)} /> */}
 
       <HeroSection featured={featured} />
-      <AdBanner imageUrl="/ad-2.gif" />
+      <AdBanner imageUrl="/bks-ad.jpg" />
       <LatestNews />
       <National />
       <International />
       <AdBanner2
         link="https://www.youtube.com/watch?v=q3spaWr_NgE"
-        imageUrl="/meril-onosthan.jpg"
+        imageUrl="/nagadad.gif"
       />
       <Politics />
       <Economy />
       {/* <National /> */}
       <SportsSection />
       <Entertainment />
-      <AdBanner imageUrl="/15921561955530599699.gif" />
+      <AdBanner imageUrl="/Prothoma-wSlider-Gif-02.gif" />
       {/* <FeaturedGrid /> */}
       <ThreeCategorySection />
       <ForYouSection />
