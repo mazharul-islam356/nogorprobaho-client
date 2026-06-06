@@ -21,9 +21,9 @@ export default function ThreeCategorySection() {
     const loadData = async () => {
       try {
         const [campusData, techData, corporateData] = await Promise.all([
-          getNewsByCategory("religion", "en"),
-          getNewsByCategory("technology", "en"),
-          getNewsByCategory("education", "en"),
+          getNewsByCategory("sunamganj", "en"),
+          getNewsByCategory("moulvibazar", "en"),
+          getNewsByCategory("habiganj", "en"),
         ]);
 
         setCampus(campusData?.data || []);
@@ -40,22 +40,22 @@ export default function ThreeCategorySection() {
   const sections = [
     {
       title: {
-        en: "Religion",
-        bn: "ধর্ম",
+        en: "Sunamganj",
+        bn: "সুনামগঞ্জ",
       },
       data: campus,
     },
     {
       title: {
-        en: "Tech World",
-        bn: "টেক ওয়ার্ল্ড",
+        en: "Moulvibazar",
+        bn: "মৌলভীবাজার",
       },
       data: tech,
     },
     {
       title: {
-        en: "Education",
-        bn: "শিক্ষা",
+        en: "Habiganj",
+        bn: "হবিগঞ্জ",
       },
       data: corporate,
     },

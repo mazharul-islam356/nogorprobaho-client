@@ -23,7 +23,7 @@ const National = () => {
       try {
         setLoading(true);
 
-        const data = await getNewsByCategory("national", "en");
+        const data = await getNewsByCategory("Sylhet", "en");
 
         setNews(data?.data || []);
       } catch (error) {
@@ -43,8 +43,8 @@ const National = () => {
 
   const title = {
     title: {
-      en: "National",
-      bn: "জাতীয়",
+      en: "Sylhet District",
+      bn: "সিলেট জেলা",
     },
   };
 

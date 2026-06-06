@@ -25,7 +25,6 @@ export default function Entertainment() {
         const data = await getNewsByCategory("entertainment", "en");
         setEntertainment(data);
       } catch (error) {
-        console.error(error);
         setError("Failed to load entertainment news");
       } finally {
         setLoading(false);
@@ -37,10 +36,9 @@ export default function Entertainment() {
 
   const newsData = entertainment?.data || [];
 
-  // ইউনিক লেআউট (বাম পাশে বড় কার্ড নেই)
-  const topFeatured = newsData?.slice(0, 2) || []; // 2 টা বড় কার্ড
-  const middleGrid = newsData?.slice(2, 10) || []; // 8 টা কার্ড (4x2 গ্রিড)
-  const bottomCards = newsData?.slice(10, 18) || []; // 8 টা ছোট কার্ড (সব সমান হাইট)
+  // SPLIT
+  const topGrid = newsData?.slice(0, 4) || []; // 2x2 (big grid)
+  const bottomGrid = newsData?.slice(4, 10) || []; // 3 columns
 
   const t = {
     title: {
@@ -49,27 +47,21 @@ export default function Entertainment() {
     },
   };
 
-  // ---------------- LOADING ----------------
   if (loading) {
     return (
       <section className="py-10 animate-pulse">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="h-10 w-40 bg-gray-200 mb-6 mx-auto" />
+        <div className="max-w-7xl mx-auto">
+          <div className="h-8 w-40 bg-gray-200 mb-6" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="h-[400px] bg-gray-200" />
-            <div className="h-[400px] bg-gray-200" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {[...Array(8)].map((_, i) => (
+            {[...Array(4)].map((_, i) => (
               <div key={i} className="h-[280px] bg-gray-200" />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="h-[200px] bg-gray-200" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="h-[260px] bg-gray-200" />
             ))}
           </div>
         </div>
@@ -77,50 +69,46 @@ export default function Entertainment() {
     );
   }
 
-  // ---------------- ERROR ----------------
   if (error) {
-    return (
-      <div className="max-w-7xl mx-auto px-4 py-10 text-[#BC8734] text-center">
-        {error}
-      </div>
-    );
+    return <div className="text-center py-10 text-red-500">{error}</div>;
   }
 
   return (
     <section className="py-10 bg-[#fafafa]">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* HEADER - Same as politics */}
+      <div className="max-w-7xl mx-auto">
+        {/* HEADER */}
         <div className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111]">
-            {t.title[lang]}
-          </h2>
-
-          <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
+          <h2 className="text-3xl font-bold text-[#111]">{t.title[lang]}</h2>
+          <div className="w-14 h-[3px] bg-[#BC8734] mt-2"></div>
         </div>
 
-        {/* ROW 1: 2 BIG FEATURED CARDS SIDE BY SIDE */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {topFeatured.map((news) => (
-            <Link key={news?._id} href={`/news/${news?._id || "#"}`}>
-              <article className="group relative overflow-hidden bg-white border border-gray-200 hover:shadow-lg transition">
+        {/* ROW 1: 2 COLUMN BIG GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {topGrid.map((news) => (
+            <Link key={news?._id} href={`/news/${news?._id}`}>
+              <article className="bg-white border overflow-hidden group hover:shadow-lg transition">
                 <Image
                   src={news?.featuredImage?.[0] || "/placeholder.jpg"}
-                  alt="featured"
+                  alt=""
                   width={800}
                   height={500}
-                  className="w-full h-[300px] object-cover group-hover:scale-105 transition duration-700"
+                  className="w-full h-[320px] object-cover group-hover:scale-105 transition duration-700"
                 />
+
                 <div className="p-5">
-                  <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase inline-block mb-2">
+                  <span className="text-xs bg-[#BC8734] text-white px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
-                  <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
+
+                  <h3 className="text-xl font-bold mt-3 line-clamp-2 group-hover:text-[#BC8734]">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
-                  <p className="text-gray-600 text-sm line-clamp-2 mb-2">
+
+                  <p className="text-sm text-gray-600 mt-2 line-clamp-2">
                     {getTranslatedValue(news?.excerpt, lang)}
                   </p>
-                  <div className="text-xs text-gray-500 flex items-center gap-1">
+
+                  <div className="text-xs text-gray-500 mt-3 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
                       news?.publishedAt || news?.createdAt,
@@ -133,31 +121,33 @@ export default function Entertainment() {
           ))}
         </div>
 
-        {/* ROW 2: 4x2 GRID (8 CARDS) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {middleGrid.map((news, idx) => (
-            <Link key={news?._id} href={`/news/${news?._id || "#"}`}>
-              <article className="group bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition h-[380px] flex flex-col">
-                <div className="relative overflow-hidden h-[200px]">
-                  <Image
-                    src={news?.featuredImage?.[0] || "/placeholder.jpg"}
-                    alt="news"
-                    width={500}
-                    height={250}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                  />
-                  <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase">
+        {/* ROW 2: 3 COLUMN GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {bottomGrid.map((news) => (
+            <Link key={news?._id} href={`/news/${news?._id}`}>
+              <article className="bg-white border overflow-hidden group hover:shadow-lg transition h-full">
+                <Image
+                  src={news?.featuredImage?.[0] || "/placeholder.jpg"}
+                  alt=""
+                  width={600}
+                  height={400}
+                  className="w-full h-[220px] object-cover group-hover:scale-105 transition duration-500"
+                />
+
+                <div className="p-4">
+                  <span className="text-[10px] bg-[#BC8734] text-white px-2 py-1 uppercase">
                     {getTranslatedValue(news?.category, lang)}
                   </span>
-                </div>
-                <div className="p-4 flex-grow flex flex-col">
-                  <h3 className="text-base font-semibold group-hover:text-[#BC8734] transition mb-2 line-clamp-2">
+
+                  <h3 className="font-semibold mt-2 line-clamp-2 group-hover:text-[#BC8734]">
                     {getTranslatedValue(news?.title, lang)}
                   </h3>
-                  <p className="text-gray-600 text-sm line-clamp-3 mb-2">
-                    {getTranslatedValue(news?.content, lang)}
+
+                  <p className="text-sm text-gray-600 mt-2 line-clamp-3">
+                    {getTranslatedValue(news?.excerpt, lang)}
                   </p>
-                  <div className="mt-auto text-xs text-gray-500 flex items-center gap-1">
+
+                  <div className="text-xs text-gray-500 mt-3 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
                       news?.publishedAt || news?.createdAt,

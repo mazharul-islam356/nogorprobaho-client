@@ -23,7 +23,7 @@ export default function ForYouSection() {
           getNewsByCategory("entertainment", "en"),
           getNewsByCategory("whole_country", "en"),
           getNewsByCategory("politics", "en"),
-          getNewsByCategory("jobs", "en"),
+          getNewsByCategory("economy", "en"),
         ]);
 
         setEntertainment(e?.data || []);
@@ -39,11 +39,35 @@ export default function ForYouSection() {
   }, []);
 
   const newsData = [
-    entertainment[3],
-    business[0],
-    corruption[3],
-    world[0],
-  ].filter(Boolean);
+    {
+      news: entertainment[1],
+      category: {
+        en: "Entertainment",
+        bn: "বিনোদন",
+      },
+    },
+    {
+      news: business[0],
+      category: {
+        en: "Whole Country",
+        bn: "সারাদেশ",
+      },
+    },
+    {
+      news: corruption[3],
+      category: {
+        en: "Politics",
+        bn: "রাজনীতি",
+      },
+    },
+    {
+      news: world[0],
+      category: {
+        en: "Economy",
+        bn: "অর্থনীতি",
+      },
+    },
+  ].filter((item) => item.news);
 
   const t = {
     title: {
@@ -59,40 +83,45 @@ export default function ForYouSection() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#111]">
             {t.title[lang]}
           </h2>
-
           <div className="w-12 h-[2px] bg-[#BC8734] mt-2"></div>
         </div>
 
-        {/* ROW 1: 2 CARDS (Small + Medium) */}
+        {/* Row 1 */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          {/* First Card - Small */}
           {newsData[0] && (
-            <Link href={`/news/${newsData[0]?._id || "#"}`}>
+            <Link href={`/news/${newsData[0].news?._id}`}>
               <article className="group bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition h-full flex flex-col">
                 <div className="relative overflow-hidden h-[220px]">
                   <Image
-                    src={newsData[0]?.featuredImage?.[0] || "/placeholder.jpg"}
+                    src={
+                      newsData[0].news?.featuredImage?.[0] || "/placeholder.jpg"
+                    }
                     alt="news"
                     width={600}
                     height={400}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                   />
+
                   <span className="absolute top-3 left-3 bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase">
-                    Entertainment
+                    {newsData[0].category[lang]}
                   </span>
                 </div>
+
                 <div className="p-5 flex-grow">
                   <h3 className="text-xl font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-3">
-                    {newsData[0]?.title?.[lang]}
+                    {newsData[0].news?.title?.[lang]}
                   </h3>
+
                   <p className="text-gray-600 text-sm line-clamp-2 mb-3">
-                    {newsData[0]?.excerpt?.[lang] ||
-                      newsData[0]?.content?.[lang]}
+                    {newsData[0].news?.excerpt?.[lang] ||
+                      newsData[0].news?.content?.[lang]}
                   </p>
+
                   <div className="text-xs text-gray-500 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
-                      newsData[0]?.publishedAt || newsData[0]?.createdAt,
+                      newsData[0].news?.publishedAt ||
+                        newsData[0].news?.createdAt,
                       lang,
                     )}
                   </div>
@@ -101,15 +130,15 @@ export default function ForYouSection() {
             </Link>
           )}
 
-          {/* Second Card - Medium with horizontal layout */}
           {newsData[1] && (
-            <Link href={`/news/${newsData[1]?._id || "#"}`}>
+            <Link href={`/news/${newsData[1].news?._id}`}>
               <article className="group bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition h-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 h-full">
                   <div className="relative overflow-hidden h-[200px] sm:h-full">
                     <Image
                       src={
-                        newsData[1]?.featuredImage?.[0] || "/placeholder.jpg"
+                        newsData[1].news?.featuredImage?.[0] ||
+                        "/placeholder.jpg"
                       }
                       alt="news"
                       width={400}
@@ -117,21 +146,26 @@ export default function ForYouSection() {
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     />
                   </div>
+
                   <div className="p-5 flex flex-col justify-center">
                     <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
-                      Business
+                      {newsData[1].category[lang]}
                     </span>
+
                     <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
-                      {newsData[1]?.title?.[lang]}
+                      {newsData[1].news?.title?.[lang]}
                     </h3>
+
                     <p className="text-gray-600 text-sm line-clamp-2 mb-2">
-                      {newsData[1]?.excerpt?.[lang] ||
-                        newsData[1]?.content?.[lang]}
+                      {newsData[1].news?.excerpt?.[lang] ||
+                        newsData[1].news?.content?.[lang]}
                     </p>
+
                     <div className="text-xs text-gray-500 flex items-center gap-1">
                       <History size={12} />
                       {formatDateRelative(
-                        newsData[1]?.publishedAt || newsData[1]?.createdAt,
+                        newsData[1].news?.publishedAt ||
+                          newsData[1].news?.createdAt,
                         lang,
                       )}
                     </div>
@@ -142,77 +176,39 @@ export default function ForYouSection() {
           )}
         </div>
 
-        {/* ROW 2: 2 CARDS (Horizontal layout both) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {newsData[2] && (
-            <Link href={`/news/${newsData[2]?._id || "#"}`}>
+        {/* Row 2 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {newsData.slice(2).map((item, index) => (
+            <Link key={index} href={`/news/${item.news?._id}`}>
               <article className="group bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition h-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 h-full">
                   <div className="relative overflow-hidden h-[200px] sm:h-full">
                     <Image
-                      src={
-                        newsData[2]?.featuredImage?.[0] || "/placeholder.jpg"
-                      }
+                      src={item.news?.featuredImage?.[0] || "/placeholder.jpg"}
                       alt="news"
                       width={400}
                       height={300}
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     />
                   </div>
-                  <div className="p-5 flex flex-col justify-center">
-                    <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
-                      Politics
-                    </span>
-                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
-                      {newsData[2]?.title?.[lang]}
-                    </h3>
-                    <p className="text-gray-600 text-sm line-clamp-2 mb-2">
-                      {newsData[2]?.excerpt?.[lang] ||
-                        newsData[2]?.content?.[lang]}
-                    </p>
-                    <div className="text-xs text-gray-500 flex items-center gap-1">
-                      <History size={12} />
-                      {formatDateRelative(
-                        newsData[2]?.publishedAt || newsData[2]?.createdAt,
-                        lang,
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </Link>
-          )}
 
-          {newsData[3] && (
-            <Link href={`/news/${newsData[3]?._id || "#"}`}>
-              <article className="group bg-white border border-gray-200 overflow-hidden hover:shadow-lg transition h-full">
-                <div className="grid grid-cols-1 sm:grid-cols-2 h-full">
-                  <div className="relative overflow-hidden h-[200px] sm:h-full">
-                    <Image
-                      src={
-                        newsData[3]?.featuredImage?.[0] || "/placeholder.jpg"
-                      }
-                      alt="news"
-                      width={400}
-                      height={300}
-                      className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                    />
-                  </div>
                   <div className="p-5 flex flex-col justify-center">
                     <span className="bg-[#BC8734] text-white text-[10px] px-2 py-1 uppercase w-fit mb-2">
-                      Jobs
+                      {item.category[lang]}
                     </span>
-                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-red-600 transition mb-2">
-                      {newsData[3]?.title?.[lang]}
+
+                    <h3 className="text-lg font-bold line-clamp-2 group-hover:text-[#BC8734] transition mb-2">
+                      {item.news?.title?.[lang]}
                     </h3>
+
                     <p className="text-gray-600 text-sm line-clamp-2 mb-2">
-                      {newsData[3]?.excerpt?.[lang] ||
-                        newsData[3]?.content?.[lang]}
+                      {item.news?.excerpt?.[lang] || item.news?.content?.[lang]}
                     </p>
+
                     <div className="text-xs text-gray-500 flex items-center gap-1">
                       <History size={12} />
                       {formatDateRelative(
-                        newsData[3]?.publishedAt || newsData[3]?.createdAt,
+                        item.news?.publishedAt || item.news?.createdAt,
                         lang,
                       )}
                     </div>
@@ -220,7 +216,7 @@ export default function ForYouSection() {
                 </div>
               </article>
             </Link>
-          )}
+          ))}
         </div>
       </div>
     </section>

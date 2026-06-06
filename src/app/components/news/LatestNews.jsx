@@ -54,7 +54,7 @@ export default function LatestNews() {
   const mainNews = latest?.[0];
   const secondaryNews = latest?.slice(1, 3);
   const gridNews = latest?.slice(3, 9);
-  const sideNews = latest?.slice(9, 12);
+  const sideNews = latest?.slice(9, 15);
 
   return (
     <section className="w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-12 bg-white">
@@ -93,7 +93,7 @@ export default function LatestNews() {
                     alt="main"
                     width={800}
                     height={500}
-                    className="w-full h-[320px] sm:h-[400px] object-cover opacity-90 group-hover:opacity-100 transition"
+                    className="w-full h-80 sm:h-[400px] object-cover opacity-90 group-hover:opacity-100 transition"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
@@ -112,7 +112,7 @@ export default function LatestNews() {
                       </span>
                     </div>
 
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight line-clamp-2 group-hover:text-red-400 transition">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight line-clamp-2 group-hover:text-[#BC8734] transition">
                       {getTranslatedValue(mainNews?.title, lang)}
                     </h2>
 
@@ -173,9 +173,12 @@ export default function LatestNews() {
                     {idx + 1}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 group-hover:text-[#BC8734]">
+                    <h4 className="text-base font-semibold text-gray-800 line-clamp-1 group-hover:text-[#BC8734]">
                       {getTranslatedValue(item?.title, lang)}
                     </h4>
+                    <p className="text-gray-400 text-xs text-ellipsis line-clamp-2">
+                      {getTranslatedValue(mainNews?.content, lang)}
+                    </p>
                     <span className="text-[9px] text-gray-400 mt-1 block">
                       {formatDateRelative(
                         item?.publishedAt || item?.createdAt,

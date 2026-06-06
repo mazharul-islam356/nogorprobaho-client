@@ -38,14 +38,14 @@ export default function AdminLogin() {
     <div className="min-h-screen  flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl overflow-hidden">
         {/* Top Section */}
-        <div className="bg-red-700 p-8 text-center">
+        <div className="bg-gray-700 p-8 text-center">
           <div className="w-16 h-16 mx-auto rounded-full bg-white/20 flex items-center justify-center mb-4">
             <ShieldCheck className="text-white" size={32} />
           </div>
 
           <h1 className="text-3xl font-bold text-white">Admin Panel</h1>
 
-          <p className="text-red-100 mt-2 text-sm">Secure login access</p>
+          <p className="text-gray-100 mt-2 text-sm">Secure login access</p>
         </div>
 
         {/* Form Section */}
@@ -61,7 +61,7 @@ export default function AdminLogin() {
                 placeholder="Enter phone number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-gray-300 outline-none focus:ring-2 focus:ring-red-500 transition"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-black placeholder:text-gray-300 outline-none focus:ring-2 focus:ring-gray-500 transition"
               />
             </div>
 
@@ -75,13 +75,13 @@ export default function AdminLogin() {
                 placeholder="Enter password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-gray-300 outline-none focus:ring-2 focus:ring-red-500 transition"
+                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-black placeholder:text-gray-300 outline-none focus:ring-2 focus:ring-gray-500 transition"
               />
             </div>
 
             <button
               onClick={handleLogin}
-              className="w-full bg-red-700 hover:bg-red-800 text-white font-semibold py-3 rounded-xl transition duration-300 shadow-lg hover:shadow-red-900/40"
+              className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-3 rounded-xl transition duration-300 shadow-lg hover:shadow-gray-900/40"
             >
               Login
             </button>

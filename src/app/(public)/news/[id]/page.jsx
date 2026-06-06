@@ -81,7 +81,7 @@ export default function NewsDetailsPage() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-white mt-28">
       <div className="max-w-7xl mx-auto px-4 py-6 md:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* LEFT CONTENT */}

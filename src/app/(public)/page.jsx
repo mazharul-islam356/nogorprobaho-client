@@ -9,12 +9,13 @@ import FeaturedGrid from "../components/news/FeaturedGrid";
 import ForYouSection from "./news/ForYouSection";
 import AdBanner2 from "../components/AdBanner2";
 import LatestNews from "../components/news/LatestNews";
-import Entertainment from "../components/Entertainment";
 import National from "./news/National";
 import ThreeCategorySection from "../components/ThreeCategory";
 import SportsSection from "../components/SportsSection";
 import International from "../components/International";
 import Politics from "../components/news/Politics";
+import Economy from "../components/Economy";
+import Entertainment from "../components/Entertainment";
 export const categories = [
   { name: "Politics", slug: "politics" },
   { name: "Technology", slug: "technology" },
@@ -117,9 +118,10 @@ export default function HomePage() {
         imageUrl="/meril-onosthan.jpg"
       />
       <Politics />
-      <Entertainment />
+      <Economy />
       {/* <National /> */}
       <SportsSection />
+      <Entertainment />
       <AdBanner imageUrl="/15921561955530599699.gif" />
       <FeaturedGrid />
       <ThreeCategorySection />

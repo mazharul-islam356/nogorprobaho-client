@@ -23,7 +23,7 @@ export default function International() {
       try {
         setLoading(true);
 
-        const data = await getNewsByCategory("international", "en");
+        const data = await getNewsByCategory("world", "en");
 
         setInternational(data?.data || []);
       } catch (error) {

@@ -94,7 +94,7 @@ export default function Politics() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {topRowCards.map((news) => (
             <Link key={news?._id} href={`/news/${news?._id}`}>
-              <article className="group bg-white border border-gray-200 rounded-sm overflow-hidden hover:shadow-lg transition h-full flex flex-col">
+              <article className="group bg-white border border-gray-300 overflow-hidden hover:shadow-lg transition h-full flex flex-col">
                 <div className="relative overflow-hidden">
                   <Image
                     src={news?.featuredImage?.[0]}
