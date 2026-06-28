@@ -10,6 +10,15 @@ export function formatDateRelative(dateInput, lang = "en") {
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
+  if (diffDays >= 2) {
+    const locale = lang === "bn" ? "bn-BD" : "en-GB";
+    return new Intl.DateTimeFormat(locale, {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  }
+
   const t = {
     en: {
       justNow: "just now",
@@ -41,22 +50,15 @@ export function formatDateRelative(dateInput, lang = "en") {
   // minutes
   if (diffMinutes < 60) {
     const unit = diffMinutes === 1 ? tr.minute : tr.minutes;
-    return lang === "bn"
-      ? `${diffMinutes} ${unit} ${tr.ago}`
-      : `${diffMinutes} ${unit} ${tr.ago}`;
+    return `${diffMinutes} ${unit} ${tr.ago}`;
   }
 
   // hours
   if (diffHours < 24) {
     const unit = diffHours === 1 ? tr.hour : tr.hours;
-    return lang === "bn"
-      ? `${diffHours} ${unit} ${tr.ago}`
-      : `${diffHours} ${unit} ${tr.ago}`;
+    return `${diffHours} ${unit} ${tr.ago}`;
   }
 
-  // days
-  const unit = diffDays === 1 ? tr.day : tr.days;
-  return lang === "bn"
-    ? `${diffDays} ${unit} ${tr.ago}`
-    : `${diffDays} ${unit} ${tr.ago}`;
+  // 1 day
+  return `1 ${tr.day} ${tr.ago}`;
 }

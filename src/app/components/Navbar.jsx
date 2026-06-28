@@ -9,6 +9,7 @@ import { ChevronRight, Globe2, Menu, Play, X } from "lucide-react";
 import { useLanguage } from "@/context/lagnguageContext";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
 import { Newspaper } from "lucide-react";
+import { toast } from "sonner";
 import { usePathname } from "next/navigation";
 
 export default function NewsNavbar() {
@@ -84,14 +85,20 @@ export default function NewsNavbar() {
             </div>
 
             <div className="flex items-center gap-3">
-              <Link
-                href={`/e-paper`}
+              <button
+                onClick={() =>
+                  toast.error(
+                    lang === "en"
+                      ? "E-Paper is not ready yet"
+                      : "ই-পেপার এখনও প্রস্তুত নয়",
+                  )
+                }
                 className="hidden sm:flex items-center gap-2 bg-[#57832A] hover:bg-[#092F12] transition text-white text-sm font-medium px-5 py-2 rounded-full"
               >
                 <Newspaper size={15} />
 
                 {lang === "en" ? "E-Paper" : "ই-পেপার"}
-              </Link>
+              </button>
 
               <button
                 onClick={toggleLanguage}
