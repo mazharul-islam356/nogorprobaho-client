@@ -87,10 +87,10 @@ export default function NewsNavbar() {
             <div className="flex items-center gap-3">
               <button
                 onClick={() =>
-                  toast.error(
+                  toast.warning(
                     lang === "en"
-                      ? "E-Paper is not ready yet"
-                      : "ই-পেপার এখনও প্রস্তুত নয়",
+                      ? "E-Paper is not ready yet!"
+                      : "ই-পেপার এখনও প্রস্তুত নয়!",
                   )
                 }
                 className="hidden sm:flex items-center gap-2 bg-[#57832A] hover:bg-[#092F12] transition text-white text-sm font-medium px-5 py-2 rounded-full"
