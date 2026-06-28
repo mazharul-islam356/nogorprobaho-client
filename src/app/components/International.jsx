@@ -166,7 +166,7 @@ export default function International() {
 
             {/* BOTTOM GRID */}
             <div className="grid grid-cols-2 gap-4 pt-2">
-              {rightGrid.map((news) => (
+              {rightGrid.slice(0, 2).map((news) => (
                 <Link key={news?._id} href={`/news/${news?._id}`}>
                   <article className="group">
                     {/* IMAGE */}
