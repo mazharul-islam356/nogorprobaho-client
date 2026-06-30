@@ -176,8 +176,45 @@ export default function NewsDetailsPage() {
 
             {/* CONTENT */}
             <div className="mt-6">
-              <div className="text-[16px] sm:text-[18px] leading-8 text-gray-800 whitespace-pre-line">
-                {news.content?.[lang]}
+              <div className="text-[16px] sm:text-[18px] leading-8 text-gray-800">
+                {(() => {
+                  const content = news.content?.[lang] || "";
+                  const paragraphs = content.split(/\n\n+/).filter(Boolean);
+                  const gallery = news.featuredImage?.slice(1) || [];
+
+                  if (!paragraphs.length) {
+                    return content && (
+                      <p className="whitespace-pre-line">{content}</p>
+                    );
+                  }
+
+                  return (
+                    <>
+                      <p className="whitespace-pre-line">{paragraphs[0]}</p>
+
+                      {gallery.length > 0 && (
+                        <div className="my-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {gallery.map((img, idx) => (
+                            <Image
+                              key={idx}
+                              src={img}
+                              width={800}
+                              height={500}
+                              alt={news.title?.[lang]}
+                              className="w-full h-auto object-cover rounded"
+                            />
+                          ))}
+                        </div>
+                      )}
+
+                      {paragraphs.length > 1 && (
+                        <div className="whitespace-pre-line">
+                          {paragraphs.slice(1).join("\n\n")}
+                        </div>
+                      )}
+                    </>
+                  );
+                })()}
               </div>
             </div>
           </div>
