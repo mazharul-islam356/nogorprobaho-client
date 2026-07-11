@@ -114,7 +114,7 @@ export default function International() {
                       {getTranslatedValue(featuredNews?.title, lang)}
                     </h2>
 
-                    <p className="hidden md:block mt-4 text-[15px] leading-7 text-white/80 line-clamp-2 max-w-3xl">
+                    <p className="hidden md:block mt-4 text-[15px] leading-6 text-white/80 truncate text-ellipsis line-clamp-2 max-w-3xl">
                       {getTranslatedValue(featuredNews?.content, lang)}
                     </p>
 
