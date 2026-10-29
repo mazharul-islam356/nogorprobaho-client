@@ -15,12 +15,8 @@ import {
 
 import { useLanguage } from "@/context/lagnguageContext";
 
-import {
-  formatDateTime,
-  shareOnFacebook,
-  shareOnTwitter,
-  copyLink,
-} from "@/utils/newsHelpers";
+import { shareOnFacebook, shareOnTwitter, copyLink } from "@/utils/newsHelpers";
+import { formatNewsDateTime, getNewsDate } from "@/lib/newsDate";
 
 import Image from "next/image";
 
@@ -117,12 +113,7 @@ export default function NewsDetailsPage() {
 
                 <span className="flex items-center gap-1.5">
                   <Clock3 size={14} />
-                  {formatDateTime(
-                    news.publishedAt !== null
-                      ? news.publishedAt
-                      : news.updatedAt || news.createdAt,
-                    lang,
-                  )}
+                  {formatNewsDateTime(getNewsDate(news), lang)}
                 </span>
               </div>
 
@@ -253,12 +244,7 @@ export default function NewsDetailsPage() {
                         </h3>
 
                         <p className="text-xs text-gray-500 mt-1">
-                          {formatDateTime(
-                            item.publishedAt !== null
-                              ? item.publishedAt
-                              : item.updatedAt || item.createdAt,
-                            lang,
-                          )}
+                          {formatNewsDateTime(getNewsDate(item), lang)}
                         </p>
                       </div>
                     </div>

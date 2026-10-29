@@ -10,6 +10,7 @@ import { useLanguage } from "@/context/lagnguageContext";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
 
 import { getFeaturedNews } from "@/service/newsApi";
+import { formatNewsDate, getNewsDate } from "@/lib/newsDate";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
@@ -17,15 +18,12 @@ import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-const formatDate = (dateString, lang) => {
-  const date = new Date(dateString);
-
-  return date.toLocaleDateString(lang === "bn" ? "bn-BD" : "en-US", {
+const formatDate = (date, lang) =>
+  formatNewsDate(date, lang, {
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
-};
 
 export default function HeroSection() {
   const { lang } = useLanguage();
@@ -128,7 +126,7 @@ export default function HeroSection() {
 
                         <span>
                           {formatDate(
-                            news?.publishedAt || news?.createdAt,
+                            getNewsDate(news),
                             lang,
                           )}
                         </span>

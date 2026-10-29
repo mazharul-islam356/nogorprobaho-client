@@ -8,7 +8,7 @@ import { History } from "lucide-react";
 import { useLanguage } from "@/context/lagnguageContext";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
 import { getNewsByCategory } from "@/service/newsApi";
-import { formatDateRelative } from "@/lib/formatDateRelative";
+import { formatDateRelative, getNewsDate } from "@/lib/newsDate";
 
 export default function ThreeCategorySection() {
   const { lang } = useLanguage();
@@ -107,7 +107,7 @@ export default function ThreeCategorySection() {
                         <div className="text-xs text-gray-500 flex items-center gap-1">
                           <History size={12} />
                           {formatDateRelative(
-                            mainNews?.publishedAt || mainNews?.createdAt,
+                            getNewsDate(mainNews),
                             lang,
                           )}
                         </div>
@@ -137,7 +137,7 @@ export default function ThreeCategorySection() {
                           <div className="text-xs text-gray-500 flex items-center gap-1">
                             <History size={10} />
                             {formatDateRelative(
-                              news?.publishedAt || news?.createdAt,
+                              getNewsDate(news),
                               lang,
                             )}
                           </div>

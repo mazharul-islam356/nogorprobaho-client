@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/lagnguageContext";
 import Link from "next/link";
 import { History } from "lucide-react";
-import { formatDateRelative } from "@/lib/formatDateRelative";
+import { formatDateRelative, getNewsDate } from "@/lib/newsDate";
 
 export default function Entertainment() {
   const [entertainment, setEntertainment] = useState([]);
@@ -117,7 +117,7 @@ export default function Entertainment() {
                   <div className="text-xs text-gray-500 mt-3 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
-                      news?.publishedAt || news?.createdAt,
+                      getNewsDate(news),
                       lang,
                     )}
                   </div>
@@ -158,7 +158,7 @@ export default function Entertainment() {
                   <div className="text-xs text-gray-500 mt-3 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
-                      news?.publishedAt || news?.createdAt,
+                      getNewsDate(news),
                       lang,
                     )}
                   </div>

@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 
 import { ArrowUpRight, Clock3, Eye } from "lucide-react";
 
-import { formatDateRelative } from "@/lib/formatDateRelative";
+import { formatDateRelative, getNewsDate } from "@/lib/newsDate";
 
 export default function LatestNews() {
   const [latest, setLatest] = useState([]);
@@ -106,7 +106,7 @@ export default function LatestNews() {
                       <span className="text-white/60 text-xs flex items-center gap-1">
                         <Clock3 size={12} />
                         {formatDateRelative(
-                          mainNews?.publishedAt || mainNews?.createdAt,
+                          getNewsDate(mainNews),
                           lang,
                         )}
                       </span>
@@ -147,7 +147,7 @@ export default function LatestNews() {
                       </h3>
                       <div className="mt-2 text-[10px] text-gray-400">
                         {formatDateRelative(
-                          item?.publishedAt || item?.createdAt,
+                          getNewsDate(item),
                           lang,
                         )}
                       </div>
@@ -181,7 +181,7 @@ export default function LatestNews() {
                     </p>
                     <span className="text-[9px] text-gray-400 mt-1 block">
                       {formatDateRelative(
-                        item?.publishedAt || item?.createdAt,
+                        getNewsDate(item),
                         lang,
                       )}
                     </span>
@@ -230,7 +230,7 @@ export default function LatestNews() {
                     <div className="mt-2 flex items-center gap-2 text-[10px] text-gray-400">
                       <Clock3 size={10} />
                       {formatDateRelative(
-                        item?.publishedAt || item?.createdAt,
+                        getNewsDate(item),
                         lang,
                       )}
                     </div>

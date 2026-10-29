@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import api from "@/lib/axios";
 import { authHeader } from "@/lib/api";
+import { toDateTimeLocalValue } from "@/lib/newsDate";
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -108,9 +109,7 @@ export default function EditNews() {
           content_en: data.content?.en || "",
           writer_bn: data.writer?.bn || "",
           writer_en: data.writer?.en || "",
-          publishedAt: data.publishedAt
-            ? new Date(data.publishedAt).toISOString().slice(0, 16)
-            : "",
+          publishedAt: toDateTimeLocalValue(data.publishedAt),
           status: data.status || "draft",
           tags: data.tags?.join(", ") || "",
           category_en: data.category?.en || "",

@@ -8,7 +8,7 @@ import { History } from "lucide-react";
 import { getNewsByCategory } from "@/service/newsApi";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
 import { useLanguage } from "@/context/lagnguageContext";
-import { formatDateRelative } from "@/lib/formatDateRelative";
+import { formatDateRelative, getNewsDate } from "@/lib/newsDate";
 
 export default function Politics() {
   const [politics, setPolitics] = useState([]);
@@ -117,7 +117,7 @@ export default function Politics() {
                   <div className="text-xs text-gray-500 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
-                      news?.publishedAt || news?.createdAt,
+                      getNewsDate(news),
                       lang,
                     )}
                   </div>
@@ -154,7 +154,7 @@ export default function Politics() {
                     <div className="text-xs text-gray-500 flex items-center gap-1">
                       <History size={12} />
                       {formatDateRelative(
-                        news?.publishedAt || news?.createdAt,
+                        getNewsDate(news),
                         lang,
                       )}
                     </div>
@@ -203,7 +203,7 @@ export default function Politics() {
                   <div className="text-xs text-gray-500 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
-                      news?.publishedAt || news?.createdAt,
+                      getNewsDate(news),
                       lang,
                     )}
                   </div>

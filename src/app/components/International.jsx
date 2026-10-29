@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/context/lagnguageContext";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
-import { formatDateRelative } from "@/lib/formatDateRelative";
+import { formatDateRelative, getNewsDate } from "@/lib/newsDate";
 import { getNewsByCategory } from "@/service/newsApi";
 
 import Image from "next/image";
@@ -122,7 +122,7 @@ export default function International() {
                       <History size={14} />
 
                       {formatDateRelative(
-                        featuredNews?.publishedAt || featuredNews?.createdAt,
+                        getNewsDate(featuredNews),
                         lang,
                       )}
                     </div>
@@ -154,7 +154,7 @@ export default function International() {
                         <History size={13} />
 
                         {formatDateRelative(
-                          news?.publishedAt || news?.createdAt,
+                          getNewsDate(news),
                           lang,
                         )}
                       </div>
@@ -190,7 +190,7 @@ export default function International() {
                         <History size={12} />
 
                         {formatDateRelative(
-                          news?.publishedAt || news?.createdAt,
+                          getNewsDate(news),
                           lang,
                         )}
                       </div>

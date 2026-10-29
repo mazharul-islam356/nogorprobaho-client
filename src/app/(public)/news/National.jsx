@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/context/lagnguageContext";
 import { getTranslatedValue } from "@/hooks/getTranslatedValue";
-import { formatDateRelative } from "@/lib/formatDateRelative";
+import { formatDateRelative, getNewsDate } from "@/lib/newsDate";
 import { getNewsByCategory } from "@/service/newsApi";
 
 import Image from "next/image";
@@ -110,7 +110,7 @@ const National = () => {
                     <div className="mt-5 flex items-center gap-2 text-sm text-gray-500">
                       <Clock3 size={15} />
 
-                      {formatDateRelative(featuredNews?.publishedAt, lang)}
+                      {formatDateRelative(getNewsDate(featuredNews), lang)}
                     </div>
                   </div>
 
@@ -148,7 +148,7 @@ const National = () => {
                     <div className="md:mt-4 mt-1 flex items-center gap-2 md:text-sm text-xs text-gray-500">
                       <Clock3 size={14} />
 
-                      {formatDateRelative(item?.publishedAt, lang)}
+                      {formatDateRelative(getNewsDate(item), lang)}
                     </div>
                   </div>
                 </article>
@@ -182,7 +182,7 @@ const National = () => {
                   <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
                     <Clock3 size={14} />
 
-                    {formatDateRelative(item?.publishedAt, lang)}
+                    {formatDateRelative(getNewsDate(item), lang)}
                   </div>
                 </div>
               </article>

@@ -10,6 +10,10 @@ import { getNewsByCategory } from "@/service/newsApi";
 import { useLanguage } from "@/context/lagnguageContext";
 import { useParams } from "next/navigation";
 import { Calendar, PenLine } from "lucide-react";
+import { formatNewsDate, getNewsDate } from "@/lib/newsDate";
+
+// same parts toLocaleDateString() showed before, e.g. "10/29/2026"
+const NUMERIC_DATE = { day: "numeric", month: "numeric", year: "numeric" };
 
 const categories = [
   { name: { bn: "সারাদেশ", en: "whole_country" }, slug: "bangladesh" },
@@ -144,9 +148,7 @@ export default function NewsPage() {
                   <div className="flex items-center gap-1">
                     <Calendar size={15} />
                     <span>
-                      {new Date(news[0]?.publishedAt).toLocaleDateString(
-                        lang === "bn" ? "bn-BD" : "en-US",
-                      )}
+                      {formatNewsDate(getNewsDate(news[0]), lang, NUMERIC_DATE)}
                     </span>
                   </div>
                 </div>
@@ -187,9 +189,7 @@ export default function NewsPage() {
                       </span>
 
                       <span>
-                        {new Date(item?.publishedAt).toLocaleDateString(
-                          lang === "bn" ? "bn-BD" : "en-US",
-                        )}
+                        {formatNewsDate(getNewsDate(item), lang, NUMERIC_DATE)}
                       </span>
                     </div>
                   </div>
@@ -236,9 +236,7 @@ export default function NewsPage() {
                       </p>
 
                       <span className="text-xs text-gray-500">
-                        {new Date(item?.publishedAt).toLocaleDateString(
-                          lang === "bn" ? "bn-BD" : "en-US",
-                        )}
+                        {formatNewsDate(getNewsDate(item), lang, NUMERIC_DATE)}
                       </span>
                     </div>
                   </div>

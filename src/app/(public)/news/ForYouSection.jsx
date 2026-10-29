@@ -6,7 +6,7 @@ import { getNewsByCategory } from "@/service/newsApi";
 import { useLanguage } from "@/context/lagnguageContext";
 import Link from "next/link";
 import { History } from "lucide-react";
-import { formatDateRelative } from "@/lib/formatDateRelative";
+import { formatDateRelative, getNewsDate } from "@/lib/newsDate";
 
 export default function ForYouSection() {
   const [entertainment, setEntertainment] = useState([]);
@@ -120,8 +120,7 @@ export default function ForYouSection() {
                   <div className="text-xs text-gray-500 flex items-center gap-1">
                     <History size={12} />
                     {formatDateRelative(
-                      newsData[0].news?.publishedAt ||
-                        newsData[0].news?.createdAt,
+                      getNewsDate(newsData[0].news),
                       lang,
                     )}
                   </div>
@@ -164,8 +163,7 @@ export default function ForYouSection() {
                     <div className="text-xs text-gray-500 flex items-center gap-1">
                       <History size={12} />
                       {formatDateRelative(
-                        newsData[1].news?.publishedAt ||
-                          newsData[1].news?.createdAt,
+                        getNewsDate(newsData[1].news),
                         lang,
                       )}
                     </div>
@@ -208,7 +206,7 @@ export default function ForYouSection() {
                     <div className="text-xs text-gray-500 flex items-center gap-1">
                       <History size={12} />
                       {formatDateRelative(
-                        item.news?.publishedAt || item.news?.createdAt,
+                        getNewsDate(item.news),
                         lang,
                       )}
                     </div>
